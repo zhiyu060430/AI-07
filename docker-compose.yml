@@ -1,0 +1,53 @@
+name: firephantom
+
+services:
+  postgres:
+    image: postgres:16
+    environment:
+      POSTGRES_USER: firephantom
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-firephantom-local}
+      POSTGRES_DB: firephantom
+    command: ["postgres", "-c", "shared_buffers=128MB", "-c", "max_connections=50"]
+    ports:
+      - "127.0.0.1:5432:5432"
+    volumes:
+      - firephantom-postgres:/var/lib/postgresql/data
+      - ./deploy/postgres/init.sql:/docker-entrypoint-initdb.d/init.sql:ro
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U firephantom -d firephantom"]
+      interval: 5s
+      timeout: 5s
+      retries: 20
+      start_period: 10s
+  api:
+    build: .
+    image: firephantom:local
+    ports:
+      - "8765:8765"
+    environment:
+      HOST: 0.0.0.0
+      PORT: "8765"
+      DATASET_ROOT: /data
+      DVC_NO_ANALYTICS: "1"
+      FIREPHANTOM_DATABASE_URL: postgresql://firephantom:${POSTGRES_PASSWORD:-firephantom-local}@postgres:5432/firephantom
+    depends_on:
+      postgres:
+        condition: service_healthy
+    volumes:
+      - dataset:/data
+    healthcheck:
+      test:
+        [
+          "CMD",
+          "python",
+          "-c",
+          "import urllib.request; urllib.request.urlopen('http://127.0.0.1:8765/health')",
+        ]
+      interval: 5s
+      timeout: 5s
+      retries: 12
+      start_period: 20s
+
+volumes:
+  dataset: {}
+  firephantom-postgres: {}

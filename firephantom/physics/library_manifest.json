@@ -1,0 +1,3126 @@
+{
+  "pack": "Quaternius Ultimate Nature (CC0) and Poly Haven CC0 props",
+  "models": [
+    {
+      "id": "BirchTree_1",
+      "label": "桦树 1",
+      "group": "树",
+      "size": [
+        1.7019,
+        2.4797,
+        3.5738
+      ],
+      "raw_size": [
+        1.7019,
+        2.4797,
+        3.5738
+      ],
+      "fuel_type": "植被",
+      "source": "Quaternius Ultimate Nature",
+      "license": "CC0",
+      "note": "",
+      "triangles": 1704
+    },
+    {
+      "id": "BirchTree_2",
+      "label": "桦树 2",
+      "group": "树",
+      "size": [
+        1.4689,
+        1.6927,
+        4.0308
+      ],
+      "raw_size": [
+        1.4689,
+        1.6927,
+        4.0308
+      ],
+      "fuel_type": "植被",
+      "source": "Quaternius Ultimate Nature",
+      "license": "CC0",
+      "note": "",
+      "triangles": 1568
+    },
+    {
+      "id": "BirchTree_3",
+      "label": "桦树 3",
+      "group": "树",
+      "size": [
+        1.5748,
+        1.7704,
+        4.0932
+      ],
+      "raw_size": [
+        1.5748,
+        1.7704,
+        4.0932
+      ],
+      "fuel_type": "植被",
+      "source": "Quaternius Ultimate Nature",
+      "license": "CC0",
+      "note": "",
+      "triangles": 1730
+    },
+    {
+      "id": "BirchTree_4",
+      "label": "桦树 4",
+      "group": "树",
+      "size": [
+        1.153,
+        3.2873,
+        3.5585
+      ],
+      "raw_size": [
+        1.153,
+        3.2873,
+        3.5585
+      ],
+      "fuel_type": "植被",
+      "source": "Quaternius Ultimate Nature",
+      "license": "CC0",
+      "note": "",
+      "triangles": 2338
+    },
+    {
+      "id": "BirchTree_5",
+      "label": "桦树 5",
+      "group": "树",
+      "size": [
+        1.1872,
+        1.9335,
+        5.0092
+      ],
+      "raw_size": [
+        1.1872,
+        1.9335,
+        5.0092
+      ],
+      "fuel_type": "植被",
+      "source": "Quaternius Ultimate Nature",
+      "license": "CC0",
+      "note": "",
+      "triangles": 1734
+    },
+    {
+      "id": "BirchTree_Autumn_1",
+      "label": "秋桦树 1",
+      "group": "树",
+      "size": [
+        1.7019,
+        2.4797,
+        3.5738
+      ],
+      "raw_size": [
+        1.7019,
+        2.4797,
+        3.5738
+      ],
+      "fuel_type": "植被",
+      "source": "Quaternius Ultimate Nature",
+      "license": "CC0",
+      "note": "",
+      "triangles": 1704
+    },
+    {
+      "id": "BirchTree_Autumn_2",
+      "label": "秋桦树 2",
+      "group": "树",
+      "size": [
+        1.4689,
+        1.6927,
+        4.0308
+      ],
+      "raw_size": [
+        1.4689,
+        1.6927,
+        4.0308
+      ],
+      "fuel_type": "植被",
+      "source": "Quaternius Ultimate Nature",
+      "license": "CC0",
+      "note": "",
+      "triangles": 1568
+    },
+    {
+      "id": "BirchTree_Autumn_3",
+      "label": "秋桦树 3",
+      "group": "树",
+      "size": [
+        1.5748,
+        1.7704,
+        4.0932
+      ],
+      "raw_size": [
+        1.5748,
+        1.7704,
+        4.0932
+      ],
+      "fuel_type": "植被",
+      "source": "Quaternius Ultimate Nature",
+      "license": "CC0",
+      "note": "",
+      "triangles": 1730
+    },
+    {
+      "id": "BirchTree_Autumn_4",
+      "label": "秋桦树 4",
+      "group": "树",
+      "size": [
+        1.153,
+        3.2873,
+        3.5585
+      ],
+      "raw_size": [
+        1.153,
+        3.2873,
+        3.5585
+      ],
+      "fuel_type": "植被",
+      "source": "Quaternius Ultimate Nature",
+      "license": "CC0",
+      "note": "",
+      "triangles": 2338
+    },
+    {
+      "id": "BirchTree_Autumn_5",
+      "label": "秋桦树 5",
+      "group": "树",
+      "size": [
+        1.1872,
+        1.9335,
+        5.0092
+      ],
+      "raw_size": [
+        1.1872,
+        1.9335,
+        5.0092
+      ],
+      "fuel_type": "植被",
+      "source": "Quaternius Ultimate Nature",
+      "license": "CC0",
+      "note": "",
+      "triangles": 1734
+    },
+    {
+      "id": "BirchTree_Dead_1",
+      "label": "枯桦树 1",
+      "group": "树",
+      "size": [
+        0.4806,
+        1.6262,
+        2.2479
+      ],
+      "raw_size": [
+        0.4806,
+        1.6262,
+        2.2479
+      ],
+      "fuel_type": "植被",
+      "source": "Quaternius Ultimate Nature",
+      "license": "CC0",
+      "note": "",
+      "triangles": 820
+    },
+    {
+      "id": "BirchTree_Dead_2",
+      "label": "枯桦树 2",
+      "group": "树",
+      "size": [
+        0.6885,
+        0.8811,
+        2.6333
+      ],
+      "raw_size": [
+        0.6885,
+        0.8811,
+        2.6333
+      ],
+      "fuel_type": "植被",
+      "source": "Quaternius Ultimate Nature",
+      "license": "CC0",
+      "note": "",
+      "triangles": 1312
+    },
+    {
+      "id": "BirchTree_Dead_3",
+      "label": "枯桦树 3",
+      "group": "树",
+      "size": [
+        0.7226,
+        0.8096,
+        3.1812
+      ],
+      "raw_size": [
+        0.7226,
+        0.8096,
+        3.1812
+      ],
+      "fuel_type": "植被",
+      "source": "Quaternius Ultimate Nature",
+      "license": "CC0",
+      "note": "",
+      "triangles": 1346
+    },
+    {
+      "id": "BirchTree_Dead_4",
+      "label": "枯桦树 4",
+      "group": "树",
+      "size": [
+        0.4992,
+        2.5968,
+        2.6924
+      ],
+      "raw_size": [
+        0.4992,
+        2.5968,
+        2.6924
+      ],
+      "fuel_type": "植被",
+      "source": "Quaternius Ultimate Nature",
+      "license": "CC0",
+      "note": "",
+      "triangles": 1570
+    },
+    {
+      "id": "BirchTree_Dead_5",
+      "label": "枯桦树 5",
+      "group": "树",
+      "size": [
+        0.5716,
+        1.0528,
+        4.3679
+      ],
+      "raw_size": [
+        0.5716,
+        1.0528,
+        4.3679
+      ],
+      "fuel_type": "植被",
+      "source": "Quaternius Ultimate Nature",
+      "license": "CC0",
+      "note": "",
+      "triangles": 1222
+    },
+    {
+      "id": "BirchTree_Dead_Snow_1",
+      "label": "枯雪桦树 1",
+      "group": "树",
+      "size": [
+        0.4806,
+        1.6262,
+        2.2479
+      ],
+      "raw_size": [
+        0.4806,
+        1.6262,
+        2.2479
+      ],
+      "fuel_type": "植被",
+      "source": "Quaternius Ultimate Nature",
+      "license": "CC0",
+      "note": "",
+      "triangles": 876
+    },
+    {
+      "id": "BirchTree_Dead_Snow_2",
+      "label": "枯雪桦树 2",
+      "group": "树",
+      "size": [
+        0.6885,
+        0.8811,
+        2.6333
+      ],
+      "raw_size": [
+        0.6885,
+        0.8811,
+        2.6333
+      ],
+      "fuel_type": "植被",
+      "source": "Quaternius Ultimate Nature",
+      "license": "CC0",
+      "note": "",
+      "triangles": 1434
+    },
+    {
+      "id": "BirchTree_Dead_Snow_3",
+      "label": "枯雪桦树 3",
+      "group": "树",
+      "size": [
+        0.7226,
+        0.8096,
+        3.1812
+      ],
+      "raw_size": [
+        0.7226,
+        0.8096,
+        3.1812
+      ],
+      "fuel_type": "植被",
+      "source": "Quaternius Ultimate Nature",
+      "license": "CC0",
+      "note": "",
+      "triangles": 1422
+    },
+    {
+      "id": "BirchTree_Dead_Snow_4",
+      "label": "枯雪桦树 4",
+      "group": "树",
+      "size": [
+        0.4992,
+        2.5968,
+        2.6924
+      ],
+      "raw_size": [
+        0.4992,
+        2.5968,
+        2.6924
+      ],
+      "fuel_type": "植被",
+      "source": "Quaternius Ultimate Nature",
+      "license": "CC0",
+      "note": "",
+      "triangles": 1718
+    },
+    {
+      "id": "BirchTree_Dead_Snow_5",
+      "label": "枯雪桦树 5",
+      "group": "树",
+      "size": [
+        0.5716,
+        1.0528,
+        4.3679
+      ],
+      "raw_size": [
+        0.5716,
+        1.0528,
+        4.3679
+      ],
+      "fuel_type": "植被",
+      "source": "Quaternius Ultimate Nature",
+      "license": "CC0",
+      "note": "",
+      "triangles": 1268
+    },
+    {
+      "id": "BirchTree_Snow_1",
+      "label": "雪桦树 1",
+      "group": "树",
+      "size": [
+        1.7019,
+        2.4797,
+        3.589
+      ],
+      "raw_size": [
+        1.7019,
+        2.4797,
+        3.589
+      ],
+      "fuel_type": "植被",
+      "source": "Quaternius Ultimate Nature",
+      "license": "CC0",
+      "note": "",
+      "triangles": 1804
+    },
+    {
+      "id": "BirchTree_Snow_2",
+      "label": "雪桦树 2",
+      "group": "树",
+      "size": [
+        1.4689,
+        1.6927,
+        4.0946
+      ],
+      "raw_size": [
+        1.4689,
+        1.6927,
+        4.0946
+      ],
+      "fuel_type": "植被",
+      "source": "Quaternius Ultimate Nature",
+      "license": "CC0",
+      "note": "",
+      "triangles": 1612
+    },
+    {
+      "id": "BirchTree_Snow_3",
+      "label": "雪桦树 3",
+      "group": "树",
+      "size": [
+        1.5748,
+        1.7704,
+        4.1529
+      ],
+      "raw_size": [
+        1.5748,
+        1.7704,
+        4.1529
+      ],
+      "fuel_type": "植被",
+      "source": "Quaternius Ultimate Nature",
+      "license": "CC0",
+      "note": "",
+      "triangles": 1798
+    },
+    {
+      "id": "BirchTree_Snow_4",
+      "label": "雪桦树 4",
+      "group": "树",
+      "size": [
+        1.153,
+        3.2873,
+        3.5986
+      ],
+      "raw_size": [
+        1.153,
+        3.2873,
+        3.5986
+      ],
+      "fuel_type": "植被",
+      "source": "Quaternius Ultimate Nature",
+      "license": "CC0",
+      "note": "",
+      "triangles": 2478
+    },
+    {
+      "id": "BirchTree_Snow_5",
+      "label": "雪桦树 5",
+      "group": "树",
+      "size": [
+        1.1872,
+        1.9335,
+        5.0623
+      ],
+      "raw_size": [
+        1.1872,
+        1.9335,
+        5.0623
+      ],
+      "fuel_type": "植被",
+      "source": "Quaternius Ultimate Nature",
+      "license": "CC0",
+      "note": "",
+      "triangles": 1806
+    },
+    {
+      "id": "BushBerries_1",
+      "label": "浆果灌木 1",
+      "group": "灌木与草",
+      "size": [
+        1.3924,
+        1.7189,
+        1.276
+      ],
+      "raw_size": [
+        1.3924,
+        1.7189,
+        1.276
+      ],
+      "fuel_type": "植被",
+      "source": "Quaternius Ultimate Nature",
+      "license": "CC0",
+      "note": "",
+      "triangles": 892
+    },
+    {
+      "id": "BushBerries_2",
+      "label": "浆果灌木 2",
+      "group": "灌木与草",
+      "size": [
+        1.3387,
+        1.3345,
+        1.1298
+      ],
+      "raw_size": [
+        1.3387,
+        1.3345,
+        1.1298
+      ],
+      "fuel_type": "植被",
+      "source": "Quaternius Ultimate Nature",
+      "license": "CC0",
+      "note": "",
+      "triangles": 796
+    },
+    {
+      "id": "Bush_1",
+      "label": "灌木 1",
+      "group": "灌木与草",
+      "size": [
+        1.3284,
+        1.69,
+        1.2417
+      ],
+      "raw_size": [
+        1.3284,
+        1.69,
+        1.2417
+      ],
+      "fuel_type": "植被",
+      "source": "Quaternius Ultimate Nature",
+      "license": "CC0",
+      "note": "",
+      "triangles": 364
+    },
+    {
+      "id": "Bush_2",
+      "label": "灌木 2",
+      "group": "灌木与草",
+      "size": [
+        1.346,
+        1.3279,
+        1.1106
+      ],
+      "raw_size": [
+        1.346,
+        1.3279,
+        1.1106
+      ],
+      "fuel_type": "植被",
+      "source": "Quaternius Ultimate Nature",
+      "license": "CC0",
+      "note": "",
+      "triangles": 268
+    },
+    {
+      "id": "Bush_Snow_1",
+      "label": "雪灌木 1",
+      "group": "灌木与草",
+      "size": [
+        1.3917,
+        1.7759,
+        1.2841
+      ],
+      "raw_size": [
+        1.3917,
+        1.7759,
+        1.2841
+      ],
+      "fuel_type": "植被",
+      "source": "Quaternius Ultimate Nature",
+      "license": "CC0",
+      "note": "",
+      "triangles": 460
+    },
+    {
+      "id": "Bush_Snow_2",
+      "label": "雪灌木 2",
+      "group": "灌木与草",
+      "size": [
+        1.3619,
+        1.358,
+        1.1581
+      ],
+      "raw_size": [
+        1.3619,
+        1.358,
+        1.1581
+      ],
+      "fuel_type": "植被",
+      "source": "Quaternius Ultimate Nature",
+      "license": "CC0",
+      "note": "",
+      "triangles": 340
+    },
+    {
+      "id": "CactusFlower_1",
+      "label": "仙人掌花 1",
+      "group": "灌木与草",
+      "size": [
+        1.0984,
+        1.0815,
+        0.45
+      ],
+      "raw_size": [
+        0.8819,
+        0.8683,
+        0.3613
+      ],
+      "fuel_type": "植被",
+      "source": "Quaternius Ultimate Nature",
+      "license": "CC0",
+      "note": "",
+      "triangles": 2112
+    },
+    {
+      "id": "CactusFlowers_2",
+      "label": "仙人掌花 2",
+      "group": "灌木与草",
+      "size": [
+        0.7654,
+        1.2833,
+        1.939
+      ],
+      "raw_size": [
+        0.7654,
+        1.2833,
+        1.939
+      ],
+      "fuel_type": "植被",
+      "source": "Quaternius Ultimate Nature",
+      "license": "CC0",
+      "note": "",
+      "triangles": 1488
+    },
+    {
+      "id": "CactusFlowers_3",
+      "label": "仙人掌花 3",
+      "group": "灌木与草",
+      "size": [
+        0.4774,
+        1.1174,
+        1.6691
+      ],
+      "raw_size": [
+        0.4774,
+        1.1174,
+        1.6691
+      ],
+      "fuel_type": "植被",
+      "source": "Quaternius Ultimate Nature",
+      "license": "CC0",
+      "note": "",
+      "triangles": 1184
+    },
+    {
+      "id": "CactusFlowers_4",
+      "label": "仙人掌花 4",
+      "group": "灌木与草",
+      "size": [
+        0.45,
+        3.9764,
+        5.6639
+      ],
+      "raw_size": [
+        0.11,
+        0.972,
+        1.3845
+      ],
+      "fuel_type": "植被",
+      "source": "Quaternius Ultimate Nature",
+      "license": "CC0",
+      "note": "",
+      "triangles": 1632
+    },
+    {
+      "id": "CactusFlowers_5",
+      "label": "仙人掌花 5",
+      "group": "灌木与草",
+      "size": [
+        0.45,
+        2.957,
+        3.7797
+      ],
+      "raw_size": [
+        0.1117,
+        0.734,
+        0.9382
+      ],
+      "fuel_type": "植被",
+      "source": "Quaternius Ultimate Nature",
+      "license": "CC0",
+      "note": "",
+      "triangles": 800
+    },
+    {
+      "id": "Cactus_1",
+      "label": "仙人掌 1",
+      "group": "灌木与草",
+      "size": [
+        0.5497,
+        0.5629,
+        1.0076
+      ],
+      "raw_size": [
+        0.5497,
+        0.5629,
+        1.0076
+      ],
+      "fuel_type": "植被",
+      "source": "Quaternius Ultimate Nature",
+      "license": "CC0",
+      "note": "",
+      "triangles": 434
+    },
+    {
+      "id": "Cactus_2",
+      "label": "仙人掌 2",
+      "group": "灌木与草",
+      "size": [
+        0.7002,
+        1.0507,
+        1.6976
+      ],
+      "raw_size": [
+        0.7002,
+        1.0507,
+        1.6976
+      ],
+      "fuel_type": "植被",
+      "source": "Quaternius Ultimate Nature",
+      "license": "CC0",
+      "note": "",
+      "triangles": 720
+    },
+    {
+      "id": "Cactus_3",
+      "label": "仙人掌 3",
+      "group": "灌木与草",
+      "size": [
+        0.45,
+        1.3195,
+        1.8571
+      ],
+      "raw_size": [
+        0.3418,
+        1.0022,
+        1.4106
+      ],
+      "fuel_type": "植被",
+      "source": "Quaternius Ultimate Nature",
+      "license": "CC0",
+      "note": "",
+      "triangles": 416
+    },
+    {
+      "id": "Cactus_4",
+      "label": "仙人掌 4",
+      "group": "灌木与草",
+      "size": [
+        0.45,
+        3.7595,
+        5.6082
+      ],
+      "raw_size": [
+        0.11,
+        0.919,
+        1.3709
+      ],
+      "fuel_type": "植被",
+      "source": "Quaternius Ultimate Nature",
+      "license": "CC0",
+      "note": "",
+      "triangles": 1152
+    },
+    {
+      "id": "Cactus_5",
+      "label": "仙人掌 5",
+      "group": "灌木与草",
+      "size": [
+        0.45,
+        2.7435,
+        3.5532
+      ],
+      "raw_size": [
+        0.1116,
+        0.6804,
+        0.8812
+      ],
+      "fuel_type": "植被",
+      "source": "Quaternius Ultimate Nature",
+      "license": "CC0",
+      "note": "",
+      "triangles": 560
+    },
+    {
+      "id": "CommonTree_1",
+      "label": "树 1",
+      "group": "树",
+      "size": [
+        1.8891,
+        2.7731,
+        2.4806
+      ],
+      "raw_size": [
+        1.8891,
+        2.7731,
+        2.4806
+      ],
+      "fuel_type": "植被",
+      "source": "Quaternius Ultimate Nature",
+      "license": "CC0",
+      "note": "",
+      "triangles": 2888
+    },
+    {
+      "id": "CommonTree_2",
+      "label": "树 2",
+      "group": "树",
+      "size": [
+        1.6632,
+        2.5409,
+        3.1228
+      ],
+      "raw_size": [
+        1.6632,
+        2.5409,
+        3.1228
+      ],
+      "fuel_type": "植被",
+      "source": "Quaternius Ultimate Nature",
+      "license": "CC0",
+      "note": "",
+      "triangles": 2952
+    },
+    {
+      "id": "CommonTree_3",
+      "label": "树 3",
+      "group": "树",
+      "size": [
+        1.275,
+        1.5616,
+        3.4564
+      ],
+      "raw_size": [
+        1.275,
+        1.5616,
+        3.4564
+      ],
+      "fuel_type": "植被",
+      "source": "Quaternius Ultimate Nature",
+      "license": "CC0",
+      "note": "",
+      "triangles": 1584
+    },
+    {
+      "id": "CommonTree_4",
+      "label": "树 4",
+      "group": "树",
+      "size": [
+        1.5786,
+        1.8007,
+        2.7844
+      ],
+      "raw_size": [
+        1.5786,
+        1.8007,
+        2.7844
+      ],
+      "fuel_type": "植被",
+      "source": "Quaternius Ultimate Nature",
+      "license": "CC0",
+      "note": "",
+      "triangles": 1352
+    },
+    {
+      "id": "CommonTree_5",
+      "label": "树 5",
+      "group": "树",
+      "size": [
+        1.2907,
+        2.2463,
+        2.526
+      ],
+      "raw_size": [
+        1.2907,
+        2.2463,
+        2.526
+      ],
+      "fuel_type": "植被",
+      "source": "Quaternius Ultimate Nature",
+      "license": "CC0",
+      "note": "",
+      "triangles": 1836
+    },
+    {
+      "id": "CommonTree_Autumn_1",
+      "label": "秋树 1",
+      "group": "树",
+      "size": [
+        1.8891,
+        2.7731,
+        2.4806
+      ],
+      "raw_size": [
+        1.8891,
+        2.7731,
+        2.4806
+      ],
+      "fuel_type": "植被",
+      "source": "Quaternius Ultimate Nature",
+      "license": "CC0",
+      "note": "",
+      "triangles": 2888
+    },
+    {
+      "id": "CommonTree_Autumn_2",
+      "label": "秋树 2",
+      "group": "树",
+      "size": [
+        1.6632,
+        2.5409,
+        3.1228
+      ],
+      "raw_size": [
+        1.6632,
+        2.5409,
+        3.1228
+      ],
+      "fuel_type": "植被",
+      "source": "Quaternius Ultimate Nature",
+      "license": "CC0",
+      "note": "",
+      "triangles": 2952
+    },
+    {
+      "id": "CommonTree_Autumn_3",
+      "label": "秋树 3",
+      "group": "树",
+      "size": [
+        1.275,
+        1.5616,
+        3.4564
+      ],
+      "raw_size": [
+        1.275,
+        1.5616,
+        3.4564
+      ],
+      "fuel_type": "植被",
+      "source": "Quaternius Ultimate Nature",
+      "license": "CC0",
+      "note": "",
+      "triangles": 1584
+    },
+    {
+      "id": "CommonTree_Autumn_4",
+      "label": "秋树 4",
+      "group": "树",
+      "size": [
+        1.5786,
+        1.8007,
+        2.7844
+      ],
+      "raw_size": [
+        1.5786,
+        1.8007,
+        2.7844
+      ],
+      "fuel_type": "植被",
+      "source": "Quaternius Ultimate Nature",
+      "license": "CC0",
+      "note": "",
+      "triangles": 1352
+    },
+    {
+      "id": "CommonTree_Autumn_5",
+      "label": "秋树 5",
+      "group": "树",
+      "size": [
+        1.2907,
+        2.2463,
+        2.526
+      ],
+      "raw_size": [
+        1.2907,
+        2.2463,
+        2.526
+      ],
+      "fuel_type": "植被",
+      "source": "Quaternius Ultimate Nature",
+      "license": "CC0",
+      "note": "",
+      "triangles": 1836
+    },
+    {
+      "id": "CommonTree_Dead_1",
+      "label": "枯树 1",
+      "group": "树",
+      "size": [
+        1.0448,
+        2.12,
+        2.2208
+      ],
+      "raw_size": [
+        1.0448,
+        2.12,
+        2.2208
+      ],
+      "fuel_type": "植被",
+      "source": "Quaternius Ultimate Nature",
+      "license": "CC0",
+      "note": "",
+      "triangles": 2360
+    },
+    {
+      "id": "CommonTree_Dead_2",
+      "label": "枯树 2",
+      "group": "树",
+      "size": [
+        1.3298,
+        1.8649,
+        2.9592
+      ],
+      "raw_size": [
+        1.3298,
+        1.8649,
+        2.9592
+      ],
+      "fuel_type": "植被",
+      "source": "Quaternius Ultimate Nature",
+      "license": "CC0",
+      "note": "",
+      "triangles": 2360
+    },
+    {
+      "id": "CommonTree_Dead_3",
+      "label": "枯树 3",
+      "group": "树",
+      "size": [
+        0.6352,
+        0.8125,
+        3.0017
+      ],
+      "raw_size": [
+        0.6352,
+        0.8125,
+        3.0017
+      ],
+      "fuel_type": "植被",
+      "source": "Quaternius Ultimate Nature",
+      "license": "CC0",
+      "note": "",
+      "triangles": 944
+    },
+    {
+      "id": "CommonTree_Dead_4",
+      "label": "枯树 4",
+      "group": "树",
+      "size": [
+        0.8161,
+        1.0837,
+        2.3694
+      ],
+      "raw_size": [
+        0.8161,
+        1.0837,
+        2.3694
+      ],
+      "fuel_type": "植被",
+      "source": "Quaternius Ultimate Nature",
+      "license": "CC0",
+      "note": "",
+      "triangles": 1008
+    },
+    {
+      "id": "CommonTree_Dead_5",
+      "label": "枯树 5",
+      "group": "树",
+      "size": [
+        0.8443,
+        1.2004,
+        2.296
+      ],
+      "raw_size": [
+        0.8443,
+        1.2004,
+        2.296
+      ],
+      "fuel_type": "植被",
+      "source": "Quaternius Ultimate Nature",
+      "license": "CC0",
+      "note": "",
+      "triangles": 1424
+    },
+    {
+      "id": "CommonTree_Dead_Snow_1",
+      "label": "枯雪树 1",
+      "group": "树",
+      "size": [
+        1.0448,
+        2.12,
+        2.2208
+      ],
+      "raw_size": [
+        1.0448,
+        2.12,
+        2.2208
+      ],
+      "fuel_type": "植被",
+      "source": "Quaternius Ultimate Nature",
+      "license": "CC0",
+      "note": "",
+      "triangles": 2628
+    },
+    {
+      "id": "CommonTree_Dead_Snow_2",
+      "label": "枯雪树 2",
+      "group": "树",
+      "size": [
+        1.3298,
+        1.8649,
+        2.9592
+      ],
+      "raw_size": [
+        1.3298,
+        1.8649,
+        2.9592
+      ],
+      "fuel_type": "植被",
+      "source": "Quaternius Ultimate Nature",
+      "license": "CC0",
+      "note": "",
+      "triangles": 2620
+    },
+    {
+      "id": "CommonTree_Dead_Snow_3",
+      "label": "枯雪树 3",
+      "group": "树",
+      "size": [
+        0.6352,
+        0.8125,
+        3.0017
+      ],
+      "raw_size": [
+        0.6352,
+        0.8125,
+        3.0017
+      ],
+      "fuel_type": "植被",
+      "source": "Quaternius Ultimate Nature",
+      "license": "CC0",
+      "note": "",
+      "triangles": 1008
+    },
+    {
+      "id": "CommonTree_Dead_Snow_4",
+      "label": "枯雪树 4",
+      "group": "树",
+      "size": [
+        0.8161,
+        1.0837,
+        2.3694
+      ],
+      "raw_size": [
+        0.8161,
+        1.0837,
+        2.3694
+      ],
+      "fuel_type": "植被",
+      "source": "Quaternius Ultimate Nature",
+      "license": "CC0",
+      "note": "",
+      "triangles": 1104
+    },
+    {
+      "id": "CommonTree_Dead_Snow_5",
+      "label": "枯雪树 5",
+      "group": "树",
+      "size": [
+        0.8443,
+        1.2004,
+        2.296
+      ],
+      "raw_size": [
+        0.8443,
+        1.2004,
+        2.296
+      ],
+      "fuel_type": "植被",
+      "source": "Quaternius Ultimate Nature",
+      "license": "CC0",
+      "note": "",
+      "triangles": 1552
+    },
+    {
+      "id": "CommonTree_Snow_1",
+      "label": "雪树 1",
+      "group": "树",
+      "size": [
+        1.8891,
+        2.7731,
+        2.509
+      ],
+      "raw_size": [
+        1.8891,
+        2.7731,
+        2.509
+      ],
+      "fuel_type": "植被",
+      "source": "Quaternius Ultimate Nature",
+      "license": "CC0",
+      "note": "",
+      "triangles": 2966
+    },
+    {
+      "id": "CommonTree_Snow_2",
+      "label": "雪树 2",
+      "group": "树",
+      "size": [
+        1.6632,
+        2.5409,
+        3.1648
+      ],
+      "raw_size": [
+        1.6632,
+        2.5409,
+        3.1648
+      ],
+      "fuel_type": "植被",
+      "source": "Quaternius Ultimate Nature",
+      "license": "CC0",
+      "note": "",
+      "triangles": 3050
+    },
+    {
+      "id": "CommonTree_Snow_3",
+      "label": "雪树 3",
+      "group": "树",
+      "size": [
+        1.275,
+        1.5616,
+        3.4744
+      ],
+      "raw_size": [
+        1.275,
+        1.5616,
+        3.4744
+      ],
+      "fuel_type": "植被",
+      "source": "Quaternius Ultimate Nature",
+      "license": "CC0",
+      "note": "",
+      "triangles": 1672
+    },
+    {
+      "id": "CommonTree_Snow_4",
+      "label": "雪树 4",
+      "group": "树",
+      "size": [
+        1.5786,
+        1.8007,
+        2.7997
+      ],
+      "raw_size": [
+        1.5786,
+        1.8007,
+        2.7997
+      ],
+      "fuel_type": "植被",
+      "source": "Quaternius Ultimate Nature",
+      "license": "CC0",
+      "note": "",
+      "triangles": 1406
+    },
+    {
+      "id": "CommonTree_Snow_5",
+      "label": "雪树 5",
+      "group": "树",
+      "size": [
+        1.2907,
+        2.2463,
+        2.5673
+      ],
+      "raw_size": [
+        1.2907,
+        2.2463,
+        2.5673
+      ],
+      "fuel_type": "植被",
+      "source": "Quaternius Ultimate Nature",
+      "license": "CC0",
+      "note": "",
+      "triangles": 1916
+    },
+    {
+      "id": "Corn_1",
+      "label": "玉米 1",
+      "group": "灌木与草",
+      "size": [
+        0.8237,
+        1.0948,
+        1.984
+      ],
+      "raw_size": [
+        0.8237,
+        1.0948,
+        1.984
+      ],
+      "fuel_type": "植被",
+      "source": "Quaternius Ultimate Nature",
+      "license": "CC0",
+      "note": "",
+      "triangles": 566
+    },
+    {
+      "id": "Corn_2",
+      "label": "玉米 2",
+      "group": "灌木与草",
+      "size": [
+        0.8237,
+        1.0948,
+        1.984
+      ],
+      "raw_size": [
+        0.8237,
+        1.0948,
+        1.984
+      ],
+      "fuel_type": "植被",
+      "source": "Quaternius Ultimate Nature",
+      "license": "CC0",
+      "note": "",
+      "triangles": 734
+    },
+    {
+      "id": "Flowers",
+      "label": "花",
+      "group": "灌木与草",
+      "size": [
+        0.4895,
+        0.6137,
+        0.8289
+      ],
+      "raw_size": [
+        0.4895,
+        0.6137,
+        0.8289
+      ],
+      "fuel_type": "植被",
+      "source": "Quaternius Ultimate Nature",
+      "license": "CC0",
+      "note": "",
+      "triangles": 408
+    },
+    {
+      "id": "Grass",
+      "label": "草",
+      "group": "灌木与草",
+      "size": [
+        0.5141,
+        0.45,
+        1.3929
+      ],
+      "raw_size": [
+        0.3738,
+        0.3272,
+        1.0128
+      ],
+      "fuel_type": "植被",
+      "source": "Quaternius Ultimate Nature",
+      "license": "CC0",
+      "note": "",
+      "triangles": 192
+    },
+    {
+      "id": "Grass_2",
+      "label": "草 2",
+      "group": "灌木与草",
+      "size": [
+        0.45,
+        0.6286,
+        1.7096
+      ],
+      "raw_size": [
+        0.3162,
+        0.4417,
+        1.2013
+      ],
+      "fuel_type": "植被",
+      "source": "Quaternius Ultimate Nature",
+      "license": "CC0",
+      "note": "",
+      "triangles": 192
+    },
+    {
+      "id": "Grass_Short",
+      "label": "短草",
+      "group": "灌木与草",
+      "size": [
+        0.45,
+        0.6286,
+        0.5758
+      ],
+      "raw_size": [
+        0.3162,
+        0.4417,
+        0.4046
+      ],
+      "fuel_type": "植被",
+      "source": "Quaternius Ultimate Nature",
+      "license": "CC0",
+      "note": "",
+      "triangles": 192
+    },
+    {
+      "id": "Lilypad",
+      "label": "睡莲",
+      "group": "灌木与草",
+      "size": [
+        2.4388,
+        2.4223,
+        0.45
+      ],
+      "raw_size": [
+        1.1972,
+        1.1891,
+        0.2209
+      ],
+      "fuel_type": "植被",
+      "source": "Quaternius Ultimate Nature",
+      "license": "CC0",
+      "note": "",
+      "triangles": 372
+    },
+    {
+      "id": "PalmTree_1",
+      "label": "棕榈 1",
+      "group": "树",
+      "size": [
+        2.8769,
+        2.609,
+        4.4714
+      ],
+      "raw_size": [
+        2.8769,
+        2.609,
+        4.4714
+      ],
+      "fuel_type": "植被",
+      "source": "Quaternius Ultimate Nature",
+      "license": "CC0",
+      "note": "",
+      "triangles": 1772
+    },
+    {
+      "id": "PalmTree_2",
+      "label": "棕榈 2",
+      "group": "树",
+      "size": [
+        2.3209,
+        3.1781,
+        2.9091
+      ],
+      "raw_size": [
+        2.3209,
+        3.1781,
+        2.9091
+      ],
+      "fuel_type": "植被",
+      "source": "Quaternius Ultimate Nature",
+      "license": "CC0",
+      "note": "",
+      "triangles": 1232
+    },
+    {
+      "id": "PalmTree_3",
+      "label": "棕榈 3",
+      "group": "树",
+      "size": [
+        2.8769,
+        2.514,
+        3.9285
+      ],
+      "raw_size": [
+        2.8769,
+        2.514,
+        3.9285
+      ],
+      "fuel_type": "植被",
+      "source": "Quaternius Ultimate Nature",
+      "license": "CC0",
+      "note": "",
+      "triangles": 1496
+    },
+    {
+      "id": "PalmTree_4",
+      "label": "棕榈 4",
+      "group": "树",
+      "size": [
+        2.34,
+        2.5901,
+        3.4722
+      ],
+      "raw_size": [
+        2.34,
+        2.5901,
+        3.4722
+      ],
+      "fuel_type": "植被",
+      "source": "Quaternius Ultimate Nature",
+      "license": "CC0",
+      "note": "",
+      "triangles": 1052
+    },
+    {
+      "id": "PineTree_1",
+      "label": "松树 1",
+      "group": "树",
+      "size": [
+        1.9562,
+        1.8154,
+        2.7
+      ],
+      "raw_size": [
+        1.9562,
+        1.8154,
+        2.7
+      ],
+      "fuel_type": "植被",
+      "source": "Quaternius Ultimate Nature",
+      "license": "CC0",
+      "note": "",
+      "triangles": 1920
+    },
+    {
+      "id": "PineTree_2",
+      "label": "松树 2",
+      "group": "树",
+      "size": [
+        1.7972,
+        1.9575,
+        3.5647
+      ],
+      "raw_size": [
+        1.7972,
+        1.9575,
+        3.5647
+      ],
+      "fuel_type": "植被",
+      "source": "Quaternius Ultimate Nature",
+      "license": "CC0",
+      "note": "",
+      "triangles": 1692
+    },
+    {
+      "id": "PineTree_3",
+      "label": "松树 3",
+      "group": "树",
+      "size": [
+        2.1639,
+        1.954,
+        3.3044
+      ],
+      "raw_size": [
+        2.1639,
+        1.954,
+        3.3044
+      ],
+      "fuel_type": "植被",
+      "source": "Quaternius Ultimate Nature",
+      "license": "CC0",
+      "note": "",
+      "triangles": 2392
+    },
+    {
+      "id": "PineTree_4",
+      "label": "松树 4",
+      "group": "树",
+      "size": [
+        1.2541,
+        1.393,
+        3.3425
+      ],
+      "raw_size": [
+        1.2541,
+        1.393,
+        3.3425
+      ],
+      "fuel_type": "植被",
+      "source": "Quaternius Ultimate Nature",
+      "license": "CC0",
+      "note": "",
+      "triangles": 1704
+    },
+    {
+      "id": "PineTree_5",
+      "label": "松树 5",
+      "group": "树",
+      "size": [
+        1.4726,
+        1.3414,
+        2.6949
+      ],
+      "raw_size": [
+        1.4726,
+        1.3414,
+        2.6949
+      ],
+      "fuel_type": "植被",
+      "source": "Quaternius Ultimate Nature",
+      "license": "CC0",
+      "note": "",
+      "triangles": 1576
+    },
+    {
+      "id": "PineTree_Autumn_1",
+      "label": "秋松树 1",
+      "group": "树",
+      "size": [
+        1.9562,
+        1.8154,
+        2.7
+      ],
+      "raw_size": [
+        1.9562,
+        1.8154,
+        2.7
+      ],
+      "fuel_type": "植被",
+      "source": "Quaternius Ultimate Nature",
+      "license": "CC0",
+      "note": "",
+      "triangles": 1920
+    },
+    {
+      "id": "PineTree_Autumn_2",
+      "label": "秋松树 2",
+      "group": "树",
+      "size": [
+        1.7972,
+        1.9575,
+        3.5647
+      ],
+      "raw_size": [
+        1.7972,
+        1.9575,
+        3.5647
+      ],
+      "fuel_type": "植被",
+      "source": "Quaternius Ultimate Nature",
+      "license": "CC0",
+      "note": "",
+      "triangles": 1692
+    },
+    {
+      "id": "PineTree_Autumn_3",
+      "label": "秋松树 3",
+      "group": "树",
+      "size": [
+        2.1639,
+        1.954,
+        3.3044
+      ],
+      "raw_size": [
+        2.1639,
+        1.954,
+        3.3044
+      ],
+      "fuel_type": "植被",
+      "source": "Quaternius Ultimate Nature",
+      "license": "CC0",
+      "note": "",
+      "triangles": 2392
+    },
+    {
+      "id": "PineTree_Autumn_4",
+      "label": "秋松树 4",
+      "group": "树",
+      "size": [
+        1.2541,
+        1.393,
+        3.3425
+      ],
+      "raw_size": [
+        1.2541,
+        1.393,
+        3.3425
+      ],
+      "fuel_type": "植被",
+      "source": "Quaternius Ultimate Nature",
+      "license": "CC0",
+      "note": "",
+      "triangles": 1704
+    },
+    {
+      "id": "PineTree_Autumn_5",
+      "label": "秋松树 5",
+      "group": "树",
+      "size": [
+        1.4726,
+        1.3353,
+        2.6949
+      ],
+      "raw_size": [
+        1.4726,
+        1.3353,
+        2.6949
+      ],
+      "fuel_type": "植被",
+      "source": "Quaternius Ultimate Nature",
+      "license": "CC0",
+      "note": "",
+      "triangles": 1576
+    },
+    {
+      "id": "PineTree_Snow_1",
+      "label": "雪松树 1",
+      "group": "树",
+      "size": [
+        1.9562,
+        1.8154,
+        2.7
+      ],
+      "raw_size": [
+        1.9562,
+        1.8154,
+        2.7
+      ],
+      "fuel_type": "植被",
+      "source": "Quaternius Ultimate Nature",
+      "license": "CC0",
+      "note": "",
+      "triangles": 1920
+    },
+    {
+      "id": "PineTree_Snow_2",
+      "label": "雪松树 2",
+      "group": "树",
+      "size": [
+        1.7972,
+        1.9575,
+        3.5647
+      ],
+      "raw_size": [
+        1.7972,
+        1.9575,
+        3.5647
+      ],
+      "fuel_type": "植被",
+      "source": "Quaternius Ultimate Nature",
+      "license": "CC0",
+      "note": "",
+      "triangles": 1692
+    },
+    {
+      "id": "PineTree_Snow_3",
+      "label": "雪松树 3",
+      "group": "树",
+      "size": [
+        2.1639,
+        1.954,
+        3.3044
+      ],
+      "raw_size": [
+        2.1639,
+        1.954,
+        3.3044
+      ],
+      "fuel_type": "植被",
+      "source": "Quaternius Ultimate Nature",
+      "license": "CC0",
+      "note": "",
+      "triangles": 2392
+    },
+    {
+      "id": "PineTree_Snow_4",
+      "label": "雪松树 4",
+      "group": "树",
+      "size": [
+        1.2541,
+        1.393,
+        3.3425
+      ],
+      "raw_size": [
+        1.2541,
+        1.393,
+        3.3425
+      ],
+      "fuel_type": "植被",
+      "source": "Quaternius Ultimate Nature",
+      "license": "CC0",
+      "note": "",
+      "triangles": 1704
+    },
+    {
+      "id": "PineTree_Snow_5",
+      "label": "雪松树 5",
+      "group": "树",
+      "size": [
+        1.4726,
+        1.3392,
+        2.6949
+      ],
+      "raw_size": [
+        1.4726,
+        1.3392,
+        2.6949
+      ],
+      "fuel_type": "植被",
+      "source": "Quaternius Ultimate Nature",
+      "license": "CC0",
+      "note": "",
+      "triangles": 1576
+    },
+    {
+      "id": "Plant_1",
+      "label": "植物 1",
+      "group": "灌木与草",
+      "size": [
+        1.2013,
+        0.9456,
+        0.5073
+      ],
+      "raw_size": [
+        1.2013,
+        0.9456,
+        0.5073
+      ],
+      "fuel_type": "植被",
+      "source": "Quaternius Ultimate Nature",
+      "license": "CC0",
+      "note": "",
+      "triangles": 296
+    },
+    {
+      "id": "Plant_2",
+      "label": "植物 2",
+      "group": "灌木与草",
+      "size": [
+        0.6859,
+        0.6859,
+        1.7745
+      ],
+      "raw_size": [
+        0.6859,
+        0.6859,
+        1.7745
+      ],
+      "fuel_type": "植被",
+      "source": "Quaternius Ultimate Nature",
+      "license": "CC0",
+      "note": "",
+      "triangles": 218
+    },
+    {
+      "id": "Plant_3",
+      "label": "植物 3",
+      "group": "灌木与草",
+      "size": [
+        1.0897,
+        0.9724,
+        0.9437
+      ],
+      "raw_size": [
+        1.0897,
+        0.9724,
+        0.9437
+      ],
+      "fuel_type": "植被",
+      "source": "Quaternius Ultimate Nature",
+      "license": "CC0",
+      "note": "",
+      "triangles": 600
+    },
+    {
+      "id": "Plant_4",
+      "label": "植物 4",
+      "group": "灌木与草",
+      "size": [
+        1.9149,
+        2.1175,
+        0.8109
+      ],
+      "raw_size": [
+        1.9149,
+        2.1175,
+        0.8109
+      ],
+      "fuel_type": "植被",
+      "source": "Quaternius Ultimate Nature",
+      "license": "CC0",
+      "note": "",
+      "triangles": 512
+    },
+    {
+      "id": "Plant_5",
+      "label": "植物 5",
+      "group": "灌木与草",
+      "size": [
+        1.7433,
+        1.7182,
+        1.3853
+      ],
+      "raw_size": [
+        1.7433,
+        1.7182,
+        1.3853
+      ],
+      "fuel_type": "植被",
+      "source": "Quaternius Ultimate Nature",
+      "license": "CC0",
+      "note": "",
+      "triangles": 620
+    },
+    {
+      "id": "Rock_1",
+      "label": "石头 1",
+      "group": "石头",
+      "size": [
+        0.4853,
+        0.4667,
+        0.8778
+      ],
+      "raw_size": [
+        0.4853,
+        0.4667,
+        0.8778
+      ],
+      "fuel_type": "植被",
+      "source": "Quaternius Ultimate Nature",
+      "license": "CC0",
+      "note": "石头按燃料盒燃烧，燃料可以改。",
+      "triangles": 70
+    },
+    {
+      "id": "Rock_2",
+      "label": "石头 2",
+      "group": "石头",
+      "size": [
+        0.5614,
+        0.565,
+        0.6456
+      ],
+      "raw_size": [
+        0.5614,
+        0.565,
+        0.6456
+      ],
+      "fuel_type": "植被",
+      "source": "Quaternius Ultimate Nature",
+      "license": "CC0",
+      "note": "石头按燃料盒燃烧，燃料可以改。",
+      "triangles": 80
+    },
+    {
+      "id": "Rock_3",
+      "label": "石头 3",
+      "group": "石头",
+      "size": [
+        0.7384,
+        0.8026,
+        0.676
+      ],
+      "raw_size": [
+        0.7384,
+        0.8026,
+        0.676
+      ],
+      "fuel_type": "植被",
+      "source": "Quaternius Ultimate Nature",
+      "license": "CC0",
+      "note": "石头按燃料盒燃烧，燃料可以改。",
+      "triangles": 72
+    },
+    {
+      "id": "Rock_4",
+      "label": "石头 4",
+      "group": "石头",
+      "size": [
+        0.7436,
+        1.2505,
+        0.7836
+      ],
+      "raw_size": [
+        0.7436,
+        1.2505,
+        0.7836
+      ],
+      "fuel_type": "植被",
+      "source": "Quaternius Ultimate Nature",
+      "license": "CC0",
+      "note": "石头按燃料盒燃烧，燃料可以改。",
+      "triangles": 128
+    },
+    {
+      "id": "Rock_5",
+      "label": "石头 5",
+      "group": "石头",
+      "size": [
+        0.6632,
+        0.9148,
+        0.6528
+      ],
+      "raw_size": [
+        0.6632,
+        0.9148,
+        0.6528
+      ],
+      "fuel_type": "植被",
+      "source": "Quaternius Ultimate Nature",
+      "license": "CC0",
+      "note": "石头按燃料盒燃烧，燃料可以改。",
+      "triangles": 90
+    },
+    {
+      "id": "Rock_6",
+      "label": "石头 6",
+      "group": "石头",
+      "size": [
+        0.912,
+        1.142,
+        0.7078
+      ],
+      "raw_size": [
+        0.912,
+        1.142,
+        0.7078
+      ],
+      "fuel_type": "植被",
+      "source": "Quaternius Ultimate Nature",
+      "license": "CC0",
+      "note": "石头按燃料盒燃烧，燃料可以改。",
+      "triangles": 116
+    },
+    {
+      "id": "Rock_7",
+      "label": "石头 7",
+      "group": "石头",
+      "size": [
+        0.8755,
+        1.0983,
+        0.8494
+      ],
+      "raw_size": [
+        0.8755,
+        1.0983,
+        0.8494
+      ],
+      "fuel_type": "植被",
+      "source": "Quaternius Ultimate Nature",
+      "license": "CC0",
+      "note": "石头按燃料盒燃烧，燃料可以改。",
+      "triangles": 94
+    },
+    {
+      "id": "Rock_Moss_1",
+      "label": "苔石头 1",
+      "group": "石头",
+      "size": [
+        0.4853,
+        0.4667,
+        0.95
+      ],
+      "raw_size": [
+        0.4853,
+        0.4667,
+        0.95
+      ],
+      "fuel_type": "植被",
+      "source": "Quaternius Ultimate Nature",
+      "license": "CC0",
+      "note": "石头按燃料盒燃烧，燃料可以改。",
+      "triangles": 70
+    },
+    {
+      "id": "Rock_Moss_2",
+      "label": "苔石头 2",
+      "group": "石头",
+      "size": [
+        0.6125,
+        0.6504,
+        0.6918
+      ],
+      "raw_size": [
+        0.6125,
+        0.6504,
+        0.6918
+      ],
+      "fuel_type": "植被",
+      "source": "Quaternius Ultimate Nature",
+      "license": "CC0",
+      "note": "石头按燃料盒燃烧，燃料可以改。",
+      "triangles": 78
+    },
+    {
+      "id": "Rock_Moss_3",
+      "label": "苔石头 3",
+      "group": "石头",
+      "size": [
+        0.7384,
+        0.8026,
+        0.5567
+      ],
+      "raw_size": [
+        0.7384,
+        0.8026,
+        0.5567
+      ],
+      "fuel_type": "植被",
+      "source": "Quaternius Ultimate Nature",
+      "license": "CC0",
+      "note": "石头按燃料盒燃烧，燃料可以改。",
+      "triangles": 68
+    },
+    {
+      "id": "Rock_Moss_4",
+      "label": "苔石头 4",
+      "group": "石头",
+      "size": [
+        0.7436,
+        1.2505,
+        0.7836
+      ],
+      "raw_size": [
+        0.7436,
+        1.2505,
+        0.7836
+      ],
+      "fuel_type": "植被",
+      "source": "Quaternius Ultimate Nature",
+      "license": "CC0",
+      "note": "石头按燃料盒燃烧，燃料可以改。",
+      "triangles": 128
+    },
+    {
+      "id": "Rock_Moss_5",
+      "label": "苔石头 5",
+      "group": "石头",
+      "size": [
+        0.6632,
+        0.9148,
+        0.5767
+      ],
+      "raw_size": [
+        0.6632,
+        0.9148,
+        0.5767
+      ],
+      "fuel_type": "植被",
+      "source": "Quaternius Ultimate Nature",
+      "license": "CC0",
+      "note": "石头按燃料盒燃烧，燃料可以改。",
+      "triangles": 88
+    },
+    {
+      "id": "Rock_Moss_6",
+      "label": "苔石头 6",
+      "group": "石头",
+      "size": [
+        0.912,
+        1.142,
+        0.7078
+      ],
+      "raw_size": [
+        0.912,
+        1.142,
+        0.7078
+      ],
+      "fuel_type": "植被",
+      "source": "Quaternius Ultimate Nature",
+      "license": "CC0",
+      "note": "石头按燃料盒燃烧，燃料可以改。",
+      "triangles": 116
+    },
+    {
+      "id": "Rock_Moss_7",
+      "label": "苔石头 7",
+      "group": "石头",
+      "size": [
+        0.8755,
+        1.0983,
+        0.7739
+      ],
+      "raw_size": [
+        0.8755,
+        1.0983,
+        0.7739
+      ],
+      "fuel_type": "植被",
+      "source": "Quaternius Ultimate Nature",
+      "license": "CC0",
+      "note": "石头按燃料盒燃烧，燃料可以改。",
+      "triangles": 88
+    },
+    {
+      "id": "Rock_Snow_1",
+      "label": "雪石头 1",
+      "group": "石头",
+      "size": [
+        0.4853,
+        0.4667,
+        0.9839
+      ],
+      "raw_size": [
+        0.4853,
+        0.4667,
+        0.9839
+      ],
+      "fuel_type": "植被",
+      "source": "Quaternius Ultimate Nature",
+      "license": "CC0",
+      "note": "石头按燃料盒燃烧，燃料可以改。",
+      "triangles": 102
+    },
+    {
+      "id": "Rock_Snow_2",
+      "label": "雪石头 2",
+      "group": "石头",
+      "size": [
+        0.6125,
+        0.6504,
+        0.7205
+      ],
+      "raw_size": [
+        0.6125,
+        0.6504,
+        0.7205
+      ],
+      "fuel_type": "植被",
+      "source": "Quaternius Ultimate Nature",
+      "license": "CC0",
+      "note": "石头按燃料盒燃烧，燃料可以改。",
+      "triangles": 118
+    },
+    {
+      "id": "Rock_Snow_3",
+      "label": "雪石头 3",
+      "group": "石头",
+      "size": [
+        0.7384,
+        0.8026,
+        0.579
+      ],
+      "raw_size": [
+        0.7384,
+        0.8026,
+        0.579
+      ],
+      "fuel_type": "植被",
+      "source": "Quaternius Ultimate Nature",
+      "license": "CC0",
+      "note": "石头按燃料盒燃烧，燃料可以改。",
+      "triangles": 96
+    },
+    {
+      "id": "Rock_Snow_4",
+      "label": "雪石头 4",
+      "group": "石头",
+      "size": [
+        0.7436,
+        1.2505,
+        0.7995
+      ],
+      "raw_size": [
+        0.7436,
+        1.2505,
+        0.7995
+      ],
+      "fuel_type": "植被",
+      "source": "Quaternius Ultimate Nature",
+      "license": "CC0",
+      "note": "石头按燃料盒燃烧，燃料可以改。",
+      "triangles": 188
+    },
+    {
+      "id": "Rock_Snow_5",
+      "label": "雪石头 5",
+      "group": "石头",
+      "size": [
+        0.6632,
+        0.9148,
+        0.6055
+      ],
+      "raw_size": [
+        0.6632,
+        0.9148,
+        0.6055
+      ],
+      "fuel_type": "植被",
+      "source": "Quaternius Ultimate Nature",
+      "license": "CC0",
+      "note": "石头按燃料盒燃烧，燃料可以改。",
+      "triangles": 124
+    },
+    {
+      "id": "Rock_Snow_6",
+      "label": "雪石头 6",
+      "group": "石头",
+      "size": [
+        0.912,
+        1.142,
+        0.7372
+      ],
+      "raw_size": [
+        0.912,
+        1.142,
+        0.7372
+      ],
+      "fuel_type": "植被",
+      "source": "Quaternius Ultimate Nature",
+      "license": "CC0",
+      "note": "石头按燃料盒燃烧，燃料可以改。",
+      "triangles": 184
+    },
+    {
+      "id": "Rock_Snow_7",
+      "label": "雪石头 7",
+      "group": "石头",
+      "size": [
+        0.8755,
+        1.0983,
+        0.7893
+      ],
+      "raw_size": [
+        0.8755,
+        1.0983,
+        0.7893
+      ],
+      "fuel_type": "植被",
+      "source": "Quaternius Ultimate Nature",
+      "license": "CC0",
+      "note": "石头按燃料盒燃烧，燃料可以改。",
+      "triangles": 154
+    },
+    {
+      "id": "TreeStump",
+      "label": "树桩",
+      "group": "倒木",
+      "size": [
+        1.3596,
+        1.0314,
+        0.6216
+      ],
+      "raw_size": [
+        1.3596,
+        1.0314,
+        0.6216
+      ],
+      "fuel_type": "木材",
+      "source": "Quaternius Ultimate Nature",
+      "license": "CC0",
+      "note": "",
+      "triangles": 232
+    },
+    {
+      "id": "TreeStump_Moss",
+      "label": "苔树桩",
+      "group": "倒木",
+      "size": [
+        1.3596,
+        1.0314,
+        0.6216
+      ],
+      "raw_size": [
+        1.3596,
+        1.0314,
+        0.6216
+      ],
+      "fuel_type": "木材",
+      "source": "Quaternius Ultimate Nature",
+      "license": "CC0",
+      "note": "",
+      "triangles": 232
+    },
+    {
+      "id": "TreeStump_Snow",
+      "label": "雪树桩",
+      "group": "倒木",
+      "size": [
+        1.3596,
+        1.0314,
+        0.6216
+      ],
+      "raw_size": [
+        1.3596,
+        1.0314,
+        0.6216
+      ],
+      "fuel_type": "木材",
+      "source": "Quaternius Ultimate Nature",
+      "license": "CC0",
+      "note": "",
+      "triangles": 258
+    },
+    {
+      "id": "Wheat",
+      "label": "小麦",
+      "group": "灌木与草",
+      "size": [
+        0.4516,
+        0.45,
+        1.3913
+      ],
+      "raw_size": [
+        0.3578,
+        0.3565,
+        1.1022
+      ],
+      "fuel_type": "植被",
+      "source": "Quaternius Ultimate Nature",
+      "license": "CC0",
+      "note": "",
+      "triangles": 408
+    },
+    {
+      "id": "Willow_1",
+      "label": "柳树 1",
+      "group": "树",
+      "size": [
+        1.4497,
+        2.5537,
+        2.8461
+      ],
+      "raw_size": [
+        1.4497,
+        2.5537,
+        2.8461
+      ],
+      "fuel_type": "植被",
+      "source": "Quaternius Ultimate Nature",
+      "license": "CC0",
+      "note": "",
+      "triangles": 1946
+    },
+    {
+      "id": "Willow_2",
+      "label": "柳树 2",
+      "group": "树",
+      "size": [
+        1.955,
+        3.1089,
+        3.3248
+      ],
+      "raw_size": [
+        1.955,
+        3.1089,
+        3.3248
+      ],
+      "fuel_type": "植被",
+      "source": "Quaternius Ultimate Nature",
+      "license": "CC0",
+      "note": "",
+      "triangles": 2752
+    },
+    {
+      "id": "Willow_3",
+      "label": "柳树 3",
+      "group": "树",
+      "size": [
+        1.3163,
+        1.9813,
+        2.3484
+      ],
+      "raw_size": [
+        1.3163,
+        1.9813,
+        2.3484
+      ],
+      "fuel_type": "植被",
+      "source": "Quaternius Ultimate Nature",
+      "license": "CC0",
+      "note": "",
+      "triangles": 1044
+    },
+    {
+      "id": "Willow_4",
+      "label": "柳树 4",
+      "group": "树",
+      "size": [
+        2.1864,
+        3.0447,
+        3.3861
+      ],
+      "raw_size": [
+        2.1864,
+        3.0447,
+        3.3861
+      ],
+      "fuel_type": "植被",
+      "source": "Quaternius Ultimate Nature",
+      "license": "CC0",
+      "note": "",
+      "triangles": 1568
+    },
+    {
+      "id": "Willow_5",
+      "label": "柳树 5",
+      "group": "树",
+      "size": [
+        1.0099,
+        2.4902,
+        2.4152
+      ],
+      "raw_size": [
+        1.0099,
+        2.4902,
+        2.4152
+      ],
+      "fuel_type": "植被",
+      "source": "Quaternius Ultimate Nature",
+      "license": "CC0",
+      "note": "",
+      "triangles": 1624
+    },
+    {
+      "id": "Willow_Autumn_1",
+      "label": "秋柳树 1",
+      "group": "树",
+      "size": [
+        1.4497,
+        2.5537,
+        2.8461
+      ],
+      "raw_size": [
+        1.4497,
+        2.5537,
+        2.8461
+      ],
+      "fuel_type": "植被",
+      "source": "Quaternius Ultimate Nature",
+      "license": "CC0",
+      "note": "",
+      "triangles": 1946
+    },
+    {
+      "id": "Willow_Autumn_2",
+      "label": "秋柳树 2",
+      "group": "树",
+      "size": [
+        1.955,
+        3.1089,
+        3.3248
+      ],
+      "raw_size": [
+        1.955,
+        3.1089,
+        3.3248
+      ],
+      "fuel_type": "植被",
+      "source": "Quaternius Ultimate Nature",
+      "license": "CC0",
+      "note": "",
+      "triangles": 2752
+    },
+    {
+      "id": "Willow_Autumn_3",
+      "label": "秋柳树 3",
+      "group": "树",
+      "size": [
+        1.3163,
+        1.9813,
+        2.3484
+      ],
+      "raw_size": [
+        1.3163,
+        1.9813,
+        2.3484
+      ],
+      "fuel_type": "植被",
+      "source": "Quaternius Ultimate Nature",
+      "license": "CC0",
+      "note": "",
+      "triangles": 1044
+    },
+    {
+      "id": "Willow_Autumn_4",
+      "label": "秋柳树 4",
+      "group": "树",
+      "size": [
+        2.1864,
+        3.0447,
+        3.3861
+      ],
+      "raw_size": [
+        2.1864,
+        3.0447,
+        3.3861
+      ],
+      "fuel_type": "植被",
+      "source": "Quaternius Ultimate Nature",
+      "license": "CC0",
+      "note": "",
+      "triangles": 1568
+    },
+    {
+      "id": "Willow_Autumn_5",
+      "label": "秋柳树 5",
+      "group": "树",
+      "size": [
+        1.0099,
+        2.4902,
+        2.4152
+      ],
+      "raw_size": [
+        1.0099,
+        2.4902,
+        2.4152
+      ],
+      "fuel_type": "植被",
+      "source": "Quaternius Ultimate Nature",
+      "license": "CC0",
+      "note": "",
+      "triangles": 1624
+    },
+    {
+      "id": "Willow_Dead_1",
+      "label": "枯柳树 1",
+      "group": "树",
+      "size": [
+        0.4992,
+        1.8149,
+        2.6924
+      ],
+      "raw_size": [
+        0.4992,
+        1.8149,
+        2.6924
+      ],
+      "fuel_type": "植被",
+      "source": "Quaternius Ultimate Nature",
+      "license": "CC0",
+      "note": "",
+      "triangles": 1128
+    },
+    {
+      "id": "Willow_Dead_2",
+      "label": "枯柳树 2",
+      "group": "树",
+      "size": [
+        1.1739,
+        2.3961,
+        2.8363
+      ],
+      "raw_size": [
+        1.1739,
+        2.3961,
+        2.8363
+      ],
+      "fuel_type": "植被",
+      "source": "Quaternius Ultimate Nature",
+      "license": "CC0",
+      "note": "",
+      "triangles": 1860
+    },
+    {
+      "id": "Willow_Dead_3",
+      "label": "枯柳树 3",
+      "group": "树",
+      "size": [
+        0.45,
+        2.2837,
+        2.7585
+      ],
+      "raw_size": [
+        0.3109,
+        1.5778,
+        1.9058
+      ],
+      "fuel_type": "植被",
+      "source": "Quaternius Ultimate Nature",
+      "license": "CC0",
+      "note": "",
+      "triangles": 400
+    },
+    {
+      "id": "Willow_Dead_4",
+      "label": "枯柳树 4",
+      "group": "树",
+      "size": [
+        1.0147,
+        2.5861,
+        2.7229
+      ],
+      "raw_size": [
+        1.0147,
+        2.5861,
+        2.7229
+      ],
+      "fuel_type": "植被",
+      "source": "Quaternius Ultimate Nature",
+      "license": "CC0",
+      "note": "",
+      "triangles": 784
+    },
+    {
+      "id": "Willow_Dead_5",
+      "label": "枯柳树 5",
+      "group": "树",
+      "size": [
+        0.567,
+        1.9543,
+        2.0353
+      ],
+      "raw_size": [
+        0.567,
+        1.9543,
+        2.0353
+      ],
+      "fuel_type": "植被",
+      "source": "Quaternius Ultimate Nature",
+      "license": "CC0",
+      "note": "",
+      "triangles": 496
+    },
+    {
+      "id": "Willow_Dead_Snow_1",
+      "label": "枯雪柳树 1",
+      "group": "树",
+      "size": [
+        0.4992,
+        1.8149,
+        2.6924
+      ],
+      "raw_size": [
+        0.4992,
+        1.8149,
+        2.6924
+      ],
+      "fuel_type": "植被",
+      "source": "Quaternius Ultimate Nature",
+      "license": "CC0",
+      "note": "",
+      "triangles": 1220
+    },
+    {
+      "id": "Willow_Dead_Snow_2",
+      "label": "枯雪柳树 2",
+      "group": "树",
+      "size": [
+        1.1739,
+        2.3961,
+        2.8363
+      ],
+      "raw_size": [
+        1.1739,
+        2.3961,
+        2.8363
+      ],
+      "fuel_type": "植被",
+      "source": "Quaternius Ultimate Nature",
+      "license": "CC0",
+      "note": "",
+      "triangles": 2056
+    },
+    {
+      "id": "Willow_Dead_Snow_3",
+      "label": "枯雪柳树 3",
+      "group": "树",
+      "size": [
+        0.45,
+        2.2837,
+        2.7585
+      ],
+      "raw_size": [
+        0.3109,
+        1.5778,
+        1.9058
+      ],
+      "fuel_type": "植被",
+      "source": "Quaternius Ultimate Nature",
+      "license": "CC0",
+      "note": "",
+      "triangles": 440
+    },
+    {
+      "id": "Willow_Dead_Snow_4",
+      "label": "枯雪柳树 4",
+      "group": "树",
+      "size": [
+        1.0147,
+        2.5861,
+        2.7229
+      ],
+      "raw_size": [
+        1.0147,
+        2.5861,
+        2.7229
+      ],
+      "fuel_type": "植被",
+      "source": "Quaternius Ultimate Nature",
+      "license": "CC0",
+      "note": "",
+      "triangles": 856
+    },
+    {
+      "id": "Willow_Dead_Snow_5",
+      "label": "枯雪柳树 5",
+      "group": "树",
+      "size": [
+        0.567,
+        1.9543,
+        2.0353
+      ],
+      "raw_size": [
+        0.567,
+        1.9543,
+        2.0353
+      ],
+      "fuel_type": "植被",
+      "source": "Quaternius Ultimate Nature",
+      "license": "CC0",
+      "note": "",
+      "triangles": 564
+    },
+    {
+      "id": "Willow_Snow_1",
+      "label": "雪柳树 1",
+      "group": "树",
+      "size": [
+        1.4497,
+        2.5661,
+        2.9337
+      ],
+      "raw_size": [
+        1.4497,
+        2.5661,
+        2.9337
+      ],
+      "fuel_type": "植被",
+      "source": "Quaternius Ultimate Nature",
+      "license": "CC0",
+      "note": "",
+      "triangles": 2010
+    },
+    {
+      "id": "Willow_Snow_2",
+      "label": "雪柳树 2",
+      "group": "树",
+      "size": [
+        1.955,
+        3.1631,
+        3.4648
+      ],
+      "raw_size": [
+        1.955,
+        3.1631,
+        3.4648
+      ],
+      "fuel_type": "植被",
+      "source": "Quaternius Ultimate Nature",
+      "license": "CC0",
+      "note": "",
+      "triangles": 2820
+    },
+    {
+      "id": "Willow_Snow_3",
+      "label": "雪柳树 3",
+      "group": "树",
+      "size": [
+        1.3163,
+        1.9813,
+        2.409
+      ],
+      "raw_size": [
+        1.3163,
+        1.9813,
+        2.409
+      ],
+      "fuel_type": "植被",
+      "source": "Quaternius Ultimate Nature",
+      "license": "CC0",
+      "note": "",
+      "triangles": 1096
+    },
+    {
+      "id": "Willow_Snow_4",
+      "label": "雪柳树 4",
+      "group": "树",
+      "size": [
+        2.1864,
+        3.0447,
+        3.4632
+      ],
+      "raw_size": [
+        2.1864,
+        3.0447,
+        3.4632
+      ],
+      "fuel_type": "植被",
+      "source": "Quaternius Ultimate Nature",
+      "license": "CC0",
+      "note": "",
+      "triangles": 1636
+    },
+    {
+      "id": "Willow_Snow_5",
+      "label": "雪柳树 5",
+      "group": "树",
+      "size": [
+        1.0099,
+        2.4902,
+        2.4632
+      ],
+      "raw_size": [
+        1.0099,
+        2.4902,
+        2.4632
+      ],
+      "fuel_type": "植被",
+      "source": "Quaternius Ultimate Nature",
+      "license": "CC0",
+      "note": "",
+      "triangles": 1720
+    },
+    {
+      "id": "WoodLog",
+      "label": "倒木",
+      "group": "倒木",
+      "size": [
+        0.6329,
+        2.6703,
+        0.7483
+      ],
+      "raw_size": [
+        0.6329,
+        2.6703,
+        0.7483
+      ],
+      "fuel_type": "木材",
+      "source": "Quaternius Ultimate Nature",
+      "license": "CC0",
+      "note": "",
+      "triangles": 464
+    },
+    {
+      "id": "WoodLog_Moss",
+      "label": "苔倒木",
+      "group": "倒木",
+      "size": [
+        0.8966,
+        2.6703,
+        0.6883
+      ],
+      "raw_size": [
+        0.8966,
+        2.6703,
+        0.6883
+      ],
+      "fuel_type": "木材",
+      "source": "Quaternius Ultimate Nature",
+      "license": "CC0",
+      "note": "",
+      "triangles": 614
+    },
+    {
+      "id": "WoodLog_Snow",
+      "label": "雪倒木",
+      "group": "倒木",
+      "size": [
+        0.6267,
+        2.4945,
+        0.5842
+      ],
+      "raw_size": [
+        0.6267,
+        2.4945,
+        0.5842
+      ],
+      "fuel_type": "木材",
+      "source": "Quaternius Ultimate Nature",
+      "license": "CC0",
+      "note": "",
+      "triangles": 280
+    },
+    {
+      "id": "Barrel_01",
+      "label": "油桶",
+      "group": "容器",
+      "size": [
+        0.563,
+        0.563,
+        0.88
+      ],
+      "raw_size": [
+        0.563,
+        0.563,
+        0.88
+      ],
+      "fuel_type": "汽油",
+      "source": "Poly Haven",
+      "license": "CC0",
+      "note": "",
+      "triangles": 2682
+    },
+    {
+      "id": "Barrel_02",
+      "label": "塑料桶",
+      "group": "容器",
+      "size": [
+        0.4882,
+        0.4846,
+        0.88
+      ],
+      "raw_size": [
+        0.4882,
+        0.4846,
+        0.88
+      ],
+      "fuel_type": "塑料",
+      "source": "Poly Haven",
+      "license": "CC0",
+      "note": "",
+      "triangles": 2688
+    },
+    {
+      "id": "barrel_03",
+      "label": "铁桶",
+      "group": "容器",
+      "size": [
+        0.6339,
+        0.6386,
+        0.9305
+      ],
+      "raw_size": [
+        0.6339,
+        0.6386,
+        0.9305
+      ],
+      "fuel_type": "汽油",
+      "source": "Poly Haven",
+      "license": "CC0",
+      "note": "",
+      "triangles": 1473
+    },
+    {
+      "id": "wooden_crate_02",
+      "label": "大木箱",
+      "group": "容器",
+      "size": [
+        0.5291,
+        1.1663,
+        0.464
+      ],
+      "raw_size": [
+        0.5291,
+        1.1663,
+        0.464
+      ],
+      "fuel_type": "木材",
+      "source": "Poly Haven",
+      "license": "CC0",
+      "note": "",
+      "triangles": 5176
+    },
+    {
+      "id": "small_lpg_tank",
+      "label": "液化气罐",
+      "group": "容器",
+      "size": [
+        0.4509,
+        0.45,
+        0.706
+      ],
+      "raw_size": [
+        0.41,
+        0.4092,
+        0.642
+      ],
+      "fuel_type": "化学品",
+      "source": "Poly Haven",
+      "license": "CC0",
+      "note": "",
+      "triangles": 15042
+    },
+    {
+      "id": "plastic_container",
+      "label": "塑料箱",
+      "group": "容器",
+      "size": [
+        0.9374,
+        0.656,
+        0.45
+      ],
+      "raw_size": [
+        0.8951,
+        0.6264,
+        0.4297
+      ],
+      "fuel_type": "塑料",
+      "source": "Poly Haven",
+      "license": "CC0",
+      "note": "",
+      "triangles": 4070
+    }
+  ],
+  "skipped": []
+}

@@ -1,0 +1,8 @@
+# Install a CUDA/CPU-matched build for the host from https://pytorch.org/get-started/locally/
+torch>=2.2
+torchvision>=0.17
+diffusers==0.35.2
+transformers==4.56.2
+accelerate>=1.0
+safetensors>=0.4
+ultralytics>=8.3,<9

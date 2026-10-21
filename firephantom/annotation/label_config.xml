@@ -1,0 +1,28 @@
+<View>
+  <Image name="image" value="$image"/>
+  <RectangleLabels name="bbox" toName="image">
+    <Label value="flame"/>
+    <Label value="smoke"/>
+    <Label value="ember"/>
+  </RectangleLabels>
+  <KeyPointLabels name="kp" toName="image">
+    <Label value="flame_base"/>
+    <Label value="flame_center"/>
+    <Label value="plume_tip"/>
+  </KeyPointLabels>
+  <Choices name="attrs" toName="image" choice="multiple">
+    <Choice value="室内"/>
+    <Choice value="室外"/>
+    <Choice value="晴"/>
+    <Choice value="雨"/>
+    <Choice value="雪"/>
+    <Choice value="明火"/>
+    <Choice value="阴燃"/>
+    <Choice value="浓烟"/>
+    <Choice value="淡烟"/>
+    <Choice value="高风速"/>
+    <Choice value="低风速"/>
+    <Choice value="可见烟羽"/>
+    <Choice value="飞火"/>
+  </Choices>
+</View>

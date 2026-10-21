@@ -1,0 +1,86 @@
+apiVersion: v1
+kind: Secret
+metadata:
+  name: firephantom-secrets
+type: Opaque
+stringData:
+  DATASET_ENCRYPTION_KEY: replace-before-deploy
+  FIREPHANTOM_DATABASE_URL: postgresql://firephantom:replace-before-deploy@postgres:5432/firephantom
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: firephantom-data
+spec:
+  accessModes: [ReadWriteOnce]
+  resources:
+    requests:
+      storage: 20Gi
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: firephantom
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: firephantom
+  template:
+    metadata:
+      labels:
+        app: firephantom
+    spec:
+      containers:
+        - name: api
+          image: firephantom:local
+          imagePullPolicy: IfNotPresent
+          ports:
+            - name: http
+              containerPort: 8765
+          env:
+            - name: HOST
+              value: 0.0.0.0
+            - name: PORT
+              value: "8765"
+            - name: DATASET_ROOT
+              value: /data
+            - name: DATASET_ENCRYPTION_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: firephantom-secrets
+                  key: DATASET_ENCRYPTION_KEY
+            - name: FIREPHANTOM_DATABASE_URL
+              valueFrom:
+                secretKeyRef:
+                  name: firephantom-secrets
+                  key: FIREPHANTOM_DATABASE_URL
+          volumeMounts:
+            - name: dataset
+              mountPath: /data
+          readinessProbe:
+            httpGet:
+              path: /health
+              port: http
+            periodSeconds: 10
+          livenessProbe:
+            httpGet:
+              path: /health
+              port: http
+            periodSeconds: 30
+      volumes:
+        - name: dataset
+          persistentVolumeClaim:
+            claimName: firephantom-data
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: firephantom
+spec:
+  selector:
+    app: firephantom
+  ports:
+    - name: http
+      port: 8765
+      targetPort: http

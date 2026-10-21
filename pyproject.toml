@@ -1,0 +1,14 @@
+[project]
+name = "firephantom"
+version = "1.0.0"
+description = "SE2026-AI-07 flame dataset phantom system"
+requires-python = ">=3.11"
+readme = "README.md"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "--cov=firephantom --cov-report=term-missing --cov-fail-under=70"
+
+[tool.coverage.run]
+source = ["firephantom"]
+branch = false

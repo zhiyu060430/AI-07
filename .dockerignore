@@ -1,0 +1,7 @@
+var
+.pytest_cache
+.coverage
+htmlcov
+**/__pycache__
+.git
+.DS_Store

@@ -1,0 +1,11 @@
+__pycache__/
+.pytest_cache/
+.coverage
+htmlcov/
+var/
+*.pyc
+.mypy_cache/
+.DS_Store
+web/node_modules/
+web/dist/
+waveletNoiseTile.bin
