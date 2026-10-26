@@ -1,7 +1,13 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-RUNTIME="/Volumes/T7/FirePhantom-runtime"
+ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
+RUNTIME="${FIREPHANTOM_RUNTIME:-$ROOT/data}"
+case "$RUNTIME" in
+  /*|[A-Za-z]:/*) ;;
+  *) RUNTIME="$ROOT/$RUNTIME" ;;
+esac
+
 for name in api label-studio diffusion; do
   file="$RUNTIME/$name.pid"
   if [[ -f "$file" ]]; then

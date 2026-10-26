@@ -90,14 +90,16 @@ def database_url() -> str:
     configured = os.environ.get("FIREPHANTOM_DATABASE_URL", "").strip()
     if configured:
         return configured
-    password_file = Path(os.environ.get(
-        "FIREPHANTOM_POSTGRES_PASSWORD_FILE",
-        "/Volumes/T7/FirePhantom-runtime/postgres.password",
-    ))
+    from firephantom.paths import postgres_password_file
+
+    password_file = postgres_password_file()
     if password_file.is_file():
         password = password_file.read_text(encoding="utf-8").strip()
         return f"postgresql://firephantom:{password}@127.0.0.1:5432/firephantom"
-    raise RuntimeError("FIREPHANTOM_DATABASE_URL is not set and no PostgreSQL password file was found")
+    raise RuntimeError(
+        "FIREPHANTOM_DATABASE_URL is not set and no PostgreSQL password file was found "
+        f"at {password_file}"
+    )
 
 
 def parse_database_url(url: str | None = None) -> dict:

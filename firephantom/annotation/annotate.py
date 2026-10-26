@@ -17,6 +17,7 @@ import cv2
 import numpy as np
 
 from firephantom.annotation.classes import canonical
+from firephantom.runtime import default_torch_device
 from firephantom.annotation.labelstudio import LABEL_CONFIG, build_task
 from firephantom.images import to_uint8
 
@@ -86,7 +87,7 @@ def _model_objects(image: np.ndarray) -> list[dict] | None:
         result = _yolo_model(configured).predict(
             source=image,
             verbose=False,
-            device=os.environ.get("ANNOTATION_DEVICE", "mps"),
+            device=default_torch_device(),
         )[0]
     except Exception:
         return None

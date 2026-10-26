@@ -146,13 +146,9 @@ _DEFAULTS: dict[str, tuple[dict, ...]] = {
 
 
 def assets_root() -> Path:
-    configured = os.environ.get("FIREPHANTOM_ASSETS")
-    if configured:
-        return Path(configured)
-    runtime = Path("/Volumes/T7/FirePhantom-runtime/assets")
-    if runtime.parent.is_dir():
-        return runtime
-    return Path(__file__).resolve().parents[2] / "var" / "assets"
+    from firephantom.paths import assets_root as runtime_assets
+
+    return runtime_assets()
 
 
 def scene_to_three(x: float, y: float, z: float) -> tuple[float, float, float]:

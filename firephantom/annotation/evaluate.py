@@ -146,10 +146,14 @@ def main() -> None:
     parser.add_argument("--iou", type=float, default=0.5)
     parser.add_argument("--imgsz", type=int, default=320)
     parser.add_argument("--batch", type=int, default=1)
-    parser.add_argument("--device", default="mps")
+    parser.add_argument("--device", default=None, help="torch device; defaults to mps, cuda, or cpu")
     parser.add_argument("--min-available-gb", type=float, default=3.0)
     parser.add_argument("--allow-low-memory", action="store_true", help="run despite the macOS memory guard")
     args = parser.parse_args()
+    if not args.device:
+        from firephantom.runtime import default_torch_device
+
+        args.device = default_torch_device()
     if args.samples_per_stratum < 1:
         parser.error("--samples-per-stratum must be positive")
     available = available_memory_bytes()

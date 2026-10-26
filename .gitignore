@@ -9,3 +9,4 @@ var/
 web/node_modules/
 web/dist/
 waveletNoiseTile.bin
+data/

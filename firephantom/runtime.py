@@ -25,10 +25,7 @@ def _command_output(command: list[str]) -> str | None:
         return None
 
 
-def available_memory_bytes() -> int | None:
-    """Return a conservative available-memory estimate on macOS."""
-    if platform.system() != "Darwin":
-        return None
+def _darwin_available_memory() -> int | None:
     page_size_raw = _command_output(["sysctl", "-n", "vm.pagesize"])
     vm_stat = _command_output(["vm_stat"])
     if not page_size_raw or not vm_stat:
@@ -52,25 +49,114 @@ def available_memory_bytes() -> int | None:
         return None
 
 
-def total_memory_bytes() -> int | None:
-    raw = _command_output(["sysctl", "-n", "hw.memsize"]) if platform.system() == "Darwin" else None
+def _linux_meminfo() -> dict[str, int]:
+    path = Path("/proc/meminfo")
+    if not path.is_file():
+        return {}
+    values: dict[str, int] = {}
     try:
-        return int(raw.strip()) if raw else None
-    except (TypeError, ValueError):
+        for line in path.read_text(encoding="utf-8", errors="replace").splitlines():
+            key, _, rest = line.partition(":")
+            parts = rest.split()
+            if not parts or not parts[0].isdigit():
+                continue
+            values[key.strip()] = int(parts[0]) * 1024
+    except OSError:
+        return {}
+    return values
+
+
+def _windows_memory_status() -> dict[str, int] | None:
+    if platform.system() != "Windows":
         return None
+    import ctypes
+
+    class MemoryStatusEx(ctypes.Structure):
+        _fields_ = (
+            ("dwLength", ctypes.c_ulong),
+            ("dwMemoryLoad", ctypes.c_ulong),
+            ("ullTotalPhys", ctypes.c_ulonglong),
+            ("ullAvailPhys", ctypes.c_ulonglong),
+            ("ullTotalPageFile", ctypes.c_ulonglong),
+            ("ullAvailPageFile", ctypes.c_ulonglong),
+            ("ullTotalVirtual", ctypes.c_ulonglong),
+            ("ullAvailVirtual", ctypes.c_ulonglong),
+            ("ullAvailExtendedVirtual", ctypes.c_ulonglong),
+        )
+
+    status = MemoryStatusEx()
+    status.dwLength = ctypes.sizeof(MemoryStatusEx)
+    if not ctypes.windll.kernel32.GlobalMemoryStatusEx(ctypes.byref(status)):
+        return None
+    return {"total": int(status.ullTotalPhys), "available": int(status.ullAvailPhys)}
+
+
+def available_memory_bytes() -> int | None:
+    """Return a conservative available-memory estimate for this operating system."""
+    system = platform.system()
+    if system == "Darwin":
+        return _darwin_available_memory()
+    if system == "Linux":
+        return _linux_meminfo().get("MemAvailable")
+    if system == "Windows":
+        status = _windows_memory_status()
+        return None if status is None else status["available"]
+    return None
+
+
+def total_memory_bytes() -> int | None:
+    system = platform.system()
+    if system == "Darwin":
+        raw = _command_output(["sysctl", "-n", "hw.memsize"])
+        try:
+            return int(raw.strip()) if raw else None
+        except (TypeError, ValueError):
+            return None
+    if system == "Linux":
+        return _linux_meminfo().get("MemTotal")
+    if system == "Windows":
+        status = _windows_memory_status()
+        return None if status is None else status["total"]
+    return None
 
 
 def swap_status() -> dict[str, int] | None:
-    """Return macOS swap totals in bytes when the platform exposes them."""
-    raw = _command_output(["sysctl", "-n", "vm.swapusage"]) if platform.system() == "Darwin" else None
-    if not raw:
-        return None
-    import re
-    parsed: dict[str, int] = {}
-    for match in re.finditer(r"(total|used|free)\s*=\s*([0-9.]+)([KMG]?)", raw):
-        number, unit = float(match.group(2)), match.group(3)
-        parsed[match.group(1)] = int(number * {"": 1, "K": 1024, "M": 1024**2, "G": 1024**3}[unit])
-    return parsed or None
+    """Return swap totals in bytes when the platform exposes them."""
+    system = platform.system()
+    if system == "Darwin":
+        raw = _command_output(["sysctl", "-n", "vm.swapusage"])
+        if not raw:
+            return None
+        import re
+        parsed: dict[str, int] = {}
+        for match in re.finditer(r"(total|used|free)\s*=\s*([0-9.]+)([KMG]?)", raw):
+            number, unit = float(match.group(2)), match.group(3)
+            parsed[match.group(1)] = int(number * {"": 1, "K": 1024, "M": 1024**2, "G": 1024**3}[unit])
+        return parsed or None
+    if system == "Linux":
+        info = _linux_meminfo()
+        total = info.get("SwapTotal")
+        free = info.get("SwapFree")
+        if total is None or free is None:
+            return None
+        return {"total": total, "used": max(0, total - free), "free": free}
+    return None
+
+
+def default_torch_device() -> str:
+    """Pick a torch device: explicit env, then MPS on macOS, CUDA when present, else CPU."""
+    configured = os.environ.get("ANNOTATION_DEVICE", "").strip()
+    if configured:
+        return configured
+    if platform.system() == "Darwin":
+        return "mps"
+    try:
+        import torch
+    except ImportError:
+        return "cpu"
+    if torch.cuda.is_available():
+        return "cuda"
+    return "cpu"
 
 
 def memory_status(min_available_gb: float | None = None) -> dict:

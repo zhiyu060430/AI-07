@@ -359,14 +359,15 @@ def test_system_status_marks_memory_warning_as_degraded(tmp_path, monkeypatch):
     assert payload["memory"]["state"] == "warning"
 
 
-def test_default_dataset_root_prefers_external_runtime_when_mounted(monkeypatch):
+def test_default_dataset_root_follows_runtime_directory(monkeypatch, tmp_path):
     import firephantom.api as api_module
 
     monkeypatch.delenv("DATASET_ROOT", raising=False)
-    monkeypatch.setattr("firephantom.api.Path", Path)
-    root = api_module.default_dataset_root()
-    if Path("/Volumes/T7/FirePhantom-runtime").is_dir():
-        assert str(root).startswith("/Volumes/T7/FirePhantom-runtime")
+    monkeypatch.setenv("FIREPHANTOM_RUNTIME", str(tmp_path))
+    assert api_module.default_dataset_root() == tmp_path / "dataset"
+
+    monkeypatch.delenv("FIREPHANTOM_RUNTIME", raising=False)
+    assert api_module.default_dataset_root() == Path(__file__).resolve().parents[1] / "data" / "dataset"
 
 
 def test_queued_job_can_be_cancelled_without_running_the_next_item(tmp_path, monkeypatch):

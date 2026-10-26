@@ -86,7 +86,9 @@ def _load_pipeline():
             from diffusers import DiffusionPipeline
         except ImportError as exc:
             raise RuntimeError("Install requirements-ml.txt to enable local Stable Diffusion") from exc
-        model_path = Path(os.environ.get("SD_MODEL_PATH", "/Volumes/T7/FirePhantom-runtime/models/tiny-sd"))
+        from firephantom.paths import sd_model_path
+
+        model_path = sd_model_path()
         if not model_path.exists():
             raise RuntimeError(f"Stable Diffusion model directory does not exist: {model_path}")
         _check_memory_headroom()

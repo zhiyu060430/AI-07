@@ -8,12 +8,14 @@ def _postgres_password() -> str:
     configured = os.environ.get("FIREPHANTOM_TEST_POSTGRES_PASSWORD", "").strip()
     if configured:
         return configured
-    password_file = Path("/Volumes/T7/FirePhantom-runtime/postgres.password")
+    from firephantom.paths import postgres_password_file
+
+    password_file = postgres_password_file()
     if password_file.is_file():
         return password_file.read_text(encoding="utf-8").strip()
     raise RuntimeError(
-        "PostgreSQL is required for tests. Create /Volumes/T7/FirePhantom-runtime/postgres.password "
-        "or set FIREPHANTOM_TEST_POSTGRES_PASSWORD, and start the PostgreSQL service."
+        "PostgreSQL is required for tests. Create "
+        f"{password_file} or set FIREPHANTOM_TEST_POSTGRES_PASSWORD, and start the PostgreSQL service."
     )
 
 

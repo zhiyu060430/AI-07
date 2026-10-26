@@ -15,7 +15,7 @@
 
 ## 运行环境
 
-使用 Anaconda Python 3.11+ 与 PyTorch。T7 工作站依赖、模型、数据、工具和数据集根目录位于 `/Volumes/T7/FirePhantom-runtime`。React/Vite 源码位于 `web/`，构建产物由 FastAPI 提供。
+使用 Python 3.11+ 与 PyTorch。运行数据默认在仓库的 `./data`（可用 `FIREPHANTOM_RUNTIME` 改到其他磁盘或目录），macOS、Linux 和 Windows 同一套路径。React/Vite 源码位于 `web/`，构建产物由 FastAPI 提供。
 
 ## 启动服务
 
@@ -25,7 +25,7 @@
 scripts/start-local.sh
 ```
 
-人只在工作台登录：打开 `http://127.0.0.1:8765/`。第一次访问创建管理员，之后由管理员添加账号。工作台里的「打开 Label Studio」会直接进入标注页，不再出现第二套登录。`firephantom@localhost` 只作为 Label Studio 服务账号，密码在 `/Volumes/T7/FirePhantom-runtime/label-studio.password`（不要提交到 Git，也不要用它登录工作台）。
+人只在工作台登录：打开 `http://127.0.0.1:8765/`。第一次访问创建管理员，之后由管理员添加账号。工作台里的「打开 Label Studio」会直接进入标注页，不再出现第二套登录。`firephantom@localhost` 只作为 Label Studio 服务账号，密码在运行目录的 `label-studio.password`（默认 `./data/label-studio.password`，不要提交到 Git，也不要用它登录工作台）。
 
 - 健康检查：`GET http://127.0.0.1:8765/health`
 - 响应式工作台：`GET http://127.0.0.1:8765/`
@@ -78,7 +78,7 @@ Tiny-SD 冷加载受 `FIREPHANTOM_MEMORY_GUARD` 保护；`GET /api/v1/system/sta
 Stable Diffusion 只在数据集的 SD 增强里调用：每个派生样本一次带掩码的 img2img（`SD_API_URL` 默认 `http://127.0.0.1:7861/sdapi/v1/txt2img`，实际调同服务的 `/img2img`）。Label Studio 仍用 `LABEL_STUDIO_URL`；任务里的图片是 `FIREPHANTOM_PUBLIC_URL`（默认 `http://127.0.0.1:8765`）下的样本地址，不再内嵌 base64；API 自动对 `LABEL_STUDIO_URL` 的源开放 CORS，Label Studio 才能读取这些图片。
 
 ```bash
-/Volumes/T7/FirePhantom-runtime/conda-envs/firephantom/bin/python -m firephantom.probe
+python -m firephantom.probe
 ```
 
 FID 和 IS 在发布时对整个版本计算（FID 需要 `FIRE_REFERENCE_DATASET`），不再逐样本拿自己的渲染当参考。FID 使用 Fréchet 距离（越小越近），不换算成相似度百分比。Inception 权重不可用时，FID 和 IS 在同一组函数里改用固定的确定性嵌入和 4 类分类头，SSIM 不依赖权重。
@@ -88,7 +88,7 @@ FID 和 IS 在发布时对整个版本计算（FID 需要 `FIRE_REFERENCE_DATASE
 ## 测试
 
 ```bash
-/Volumes/T7/FirePhantom-runtime/conda-envs/firephantom/bin/python -m pytest
+python -m pytest
 ```
 
 覆盖率门槛是应用包的 70%。

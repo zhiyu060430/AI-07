@@ -2,7 +2,6 @@
 
 from __future__ import annotations
 
-from pathlib import Path
 import base64
 import hashlib
 import hmac
@@ -16,12 +15,16 @@ MAX_AGE_SECONDS = 14 * 24 * 60 * 60
 
 
 def secret() -> bytes:
-    configured = os.environ.get("FIREPHANTOM_SESSION_SECRET_FILE", "").strip()
-    path = Path(configured or "/Volumes/T7/FirePhantom-runtime/firephantom-session.secret")
+    from firephantom.paths import session_secret_file
+
+    path = session_secret_file()
     if not path.is_file():
         path.parent.mkdir(parents=True, exist_ok=True)
         path.write_bytes(os.urandom(32))
-        path.chmod(0o600)
+        try:
+            path.chmod(0o600)
+        except OSError:
+            pass
     return path.read_bytes().strip()
 
 

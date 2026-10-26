@@ -92,13 +92,10 @@ async def lifespan(application: FastAPI):
 
 
 def default_dataset_root() -> Path:
-    configured = os.environ.get("DATASET_ROOT")
-    if configured:
-        return Path(configured)
-    t7_root = Path("/Volumes/T7/FirePhantom-runtime/data/dataset")
-    if t7_root.parent.is_dir():
-        return t7_root
-    return Path(__file__).resolve().parent.parent / "var" / "dataset"
+    """Dataset directory. ``DATASET_ROOT`` wins, otherwise ``<runtime>/dataset``."""
+    from firephantom.paths import dataset_root
+
+    return dataset_root()
 
 
 def _cors_origins() -> list[str]:

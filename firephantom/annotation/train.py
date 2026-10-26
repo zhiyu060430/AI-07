@@ -5,33 +5,14 @@ from __future__ import annotations
 import argparse
 import json
 import os
-import platform
 from pathlib import Path
-import subprocess
 
 
 def available_memory_bytes() -> int | None:
-    """Return an approximate available-memory value on macOS, if observable."""
-    if platform.system() != "Darwin":
-        return None
-    try:
-        page_size = int(subprocess.check_output(["sysctl", "-n", "vm.pagesize"], text=True))
-        statistics = subprocess.check_output(["vm_stat"], text=True)
-        values = {}
-        for line in statistics.splitlines():
-            if ":" not in line:
-                continue
-            key, raw = line.split(":", 1)
-            raw = raw.strip().rstrip(".")
-            if raw.isdigit():
-                values[key.strip()] = int(raw)
-        pages = sum(
-            values.get(key, 0)
-            for key in ("Pages free", "Pages inactive", "Pages speculative", "Pages purgeable")
-        )
-        return pages * page_size
-    except (OSError, ValueError, subprocess.SubprocessError):
-        return None
+    """Available memory on macOS, Linux, or Windows, when the OS exposes it."""
+    from firephantom.runtime import available_memory_bytes as probe
+
+    return probe()
 
 
 def normalize_data_yaml(dataset_yaml: Path | str, output_yaml: Path | str) -> Path:
@@ -78,7 +59,7 @@ def main() -> None:
     )
     parser.add_argument("--imgsz", type=int, default=320)
     parser.add_argument("--batch", type=int, default=1)
-    parser.add_argument("--device", default="mps")
+    parser.add_argument("--device", default=None, help="torch device; defaults to mps, cuda, or cpu")
     parser.add_argument("--weights", default="yolo11n.pt")
     parser.add_argument(
         "--min-available-gb",
@@ -97,6 +78,10 @@ def main() -> None:
         help="run the validation split after every epoch; omit for faster local training",
     )
     args = parser.parse_args()
+    if not args.device:
+        from firephantom.runtime import default_torch_device
+
+        args.device = default_torch_device()
 
     available = available_memory_bytes()
     required = int(max(0.0, args.min_available_gb) * 1024**3)

@@ -413,10 +413,9 @@ def _runtime_tool(env_name: str, fallback: str) -> str | None:
 
 
 def test_room_blender_frame_contains_a_flame(tmp_path, monkeypatch):
-    blender = _runtime_tool(
-        "BLENDER_BIN",
-        "/Volumes/T7/FirePhantom-runtime/tools/Blender.app/Contents/MacOS/Blender",
-    )
+    from firephantom.paths import find_blender
+
+    blender = _runtime_tool("BLENDER_BIN", "") or find_blender()
     if blender is None:
         pytest.skip("blender is not installed")
     monkeypatch.setenv("BLENDER_BIN", blender)
