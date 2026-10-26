@@ -44,3 +44,15 @@ jobs:
       - run: python -m pip install -r requirements-dev.txt
       - run: python -m pytest
       - run: docker compose config
+  platform-windows:
+    runs-on: windows-latest
+    env:
+      FIREPHANTOM_SKIP_POSTGRES: "1"
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+      - run: python -m pip install -r requirements-dev.txt
+      - run: python -m pytest tests/test_platform.py -o addopts=
+      - run: python -c "import firephantom.physics.engine, firephantom.local, firephantom.paths, firephantom.runtime"

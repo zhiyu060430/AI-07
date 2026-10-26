@@ -50,6 +50,8 @@ def run_blender(script_file: Path | None, timeout: float = 60.0) -> dict:
             cwd=script_path.parent,
             capture_output=True,
             text=True,
+            encoding="utf-8",
+            errors="replace",
             timeout=timeout,
             check=False,
         )

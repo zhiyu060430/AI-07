@@ -19,11 +19,19 @@
 
 ## 启动服务
 
-在仓库根目录执行：
+macOS 和 Linux 在仓库根目录执行：
 
 ```bash
 scripts/start-local.sh
 ```
+
+Windows 使用同一套 Python 启动器：
+
+```powershell
+py -3.11 -m firephantom.local
+```
+
+也可以运行 `scripts\start-local.ps1`。停止服务时，macOS/Linux 用 `scripts/stop-local.sh`，Windows 用 `scripts\stop-local.ps1`。
 
 人只在工作台登录：打开 `http://127.0.0.1:8765/`。第一次访问创建管理员，之后由管理员添加账号。工作台里的「打开 Label Studio」会直接进入标注页，不再出现第二套登录。`firephantom@localhost` 只作为 Label Studio 服务账号，密码在运行目录的 `label-studio.password`（默认 `./data/label-studio.password`，不要提交到 Git，也不要用它登录工作台）。
 

@@ -65,12 +65,12 @@ def main() -> None:
         "--min-available-gb",
         type=float,
         default=3.0,
-        help="minimum observable macOS available memory before loading the detector",
+        help="minimum observable available memory before loading the detector",
     )
     parser.add_argument(
         "--allow-low-memory",
         action="store_true",
-        help="run despite the macOS memory guard; stop manually if swap or memory pressure rises",
+        help="run despite the host memory guard; stop manually if swap or memory pressure rises",
     )
     parser.add_argument(
         "--validate-during-training",
@@ -88,7 +88,7 @@ def main() -> None:
     if available is not None and available < required and not args.allow_low_memory:
         parser.error(
             f"only {available / 1024**3:.2f} GiB appears available; "
-            f"need at least {args.min_available_gb:.1f} GiB. Stop other MPS services or pass --allow-low-memory."
+            f"need at least {args.min_available_gb:.1f} GiB. Stop other model services or pass --allow-low-memory."
         )
 
     output = Path(args.output)

@@ -21,6 +21,8 @@ def _postgres_password() -> str:
 
 @pytest.fixture(scope="session", autouse=True)
 def postgres_test_database():
+    if os.environ.get("FIREPHANTOM_SKIP_POSTGRES") == "1":
+        return None
     password = _postgres_password()
     url = f"postgresql://firephantom:{password}@127.0.0.1:5432/firephantom_test"
     os.environ["FIREPHANTOM_DATABASE_URL"] = url
@@ -33,6 +35,8 @@ def postgres_test_database():
 
 @pytest.fixture(autouse=True)
 def isolated_postgres(postgres_test_database, monkeypatch, tmp_path_factory):
+    if postgres_test_database is None:
+        return
     monkeypatch.setenv("FIREPHANTOM_DATABASE_URL", postgres_test_database)
     secret = tmp_path_factory.mktemp("auth") / "session.secret"
     monkeypatch.setenv("FIREPHANTOM_SESSION_SECRET_FILE", str(secret))

@@ -3,7 +3,6 @@
 from __future__ import annotations
 
 import os
-import shutil
 import subprocess
 import tempfile
 from functools import lru_cache
@@ -11,6 +10,8 @@ from pathlib import Path
 
 import numpy as np
 import cv2
+
+from firephantom.paths import find_ffmpeg
 
 
 def to_uint8(image: np.ndarray) -> np.ndarray:
@@ -56,16 +57,7 @@ def decode_png(payload: bytes) -> np.ndarray:
 
 
 def _ffmpeg_executable() -> str | None:
-    configured = os.environ.get("FFMPEG_BIN", "").strip()
-    if configured and os.path.isfile(configured) and os.access(configured, os.X_OK):
-        return configured
-    found = shutil.which("ffmpeg")
-    if found:
-        return found
-    for candidate in ("/opt/homebrew/bin/ffmpeg", "/usr/local/bin/ffmpeg"):
-        if os.path.isfile(candidate) and os.access(candidate, os.X_OK):
-            return candidate
-    return None
+    return find_ffmpeg()
 
 
 def video_encoder() -> str:

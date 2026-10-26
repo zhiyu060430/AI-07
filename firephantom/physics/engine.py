@@ -2,7 +2,6 @@
 
 from __future__ import annotations
 
-import fcntl
 import hashlib
 import json
 import os
@@ -12,6 +11,7 @@ import cv2
 import numpy as np
 
 from firephantom.images import to_uint8
+from firephantom.locking import exclusive_lock
 from firephantom.physics.adapters import run_blender
 from firephantom.physics.blender_scene import (
     DEFAULT_FRAME_COUNT,
@@ -498,15 +498,10 @@ def simulate(
         selected, spec.name, params, placed, views, pairs, count, view_args[-1], rig or None
     )
     cache_dir.mkdir(parents=True, exist_ok=True)
-    lock_handle = (cache_dir / ".lock").open("a+")
-    try:
-        fcntl.flock(lock_handle.fileno(), fcntl.LOCK_EX)
+    with exclusive_lock(cache_dir / ".lock"):
         cached = _load_cache(cache_dir)
         if cached is not None:
             return cached
         result = _build(*build_args, cache_dir / "work", *view_args, **build_tail)
         _save_cache(cache_dir, result)
         return result
-    finally:
-        fcntl.flock(lock_handle.fileno(), fcntl.LOCK_UN)
-        lock_handle.close()

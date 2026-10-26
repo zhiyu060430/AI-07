@@ -26,6 +26,17 @@ def test_local_diffusion_keeps_cuda_half_precision_and_cpu_float32():
     assert _device_and_dtype(cpu_torch) == ("cpu", cpu_torch.float32)
 
 
+def test_local_diffusion_ignores_torch_without_an_mps_backend():
+    torch = SimpleNamespace(
+        backends=SimpleNamespace(),
+        cuda=SimpleNamespace(is_available=lambda: True),
+        float16=object(),
+        float32=object(),
+    )
+
+    assert _device_and_dtype(torch) == ("cuda", torch.float16)
+
+
 def test_local_diffusion_memory_guard_blocks_low_headroom(monkeypatch):
     import firephantom.synthesis.diffusion_server as server
 

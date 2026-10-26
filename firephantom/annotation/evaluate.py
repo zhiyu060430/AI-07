@@ -148,7 +148,7 @@ def main() -> None:
     parser.add_argument("--batch", type=int, default=1)
     parser.add_argument("--device", default=None, help="torch device; defaults to mps, cuda, or cpu")
     parser.add_argument("--min-available-gb", type=float, default=3.0)
-    parser.add_argument("--allow-low-memory", action="store_true", help="run despite the macOS memory guard")
+    parser.add_argument("--allow-low-memory", action="store_true", help="run despite the host memory guard")
     args = parser.parse_args()
     if not args.device:
         from firephantom.runtime import default_torch_device
@@ -161,7 +161,7 @@ def main() -> None:
     if available is not None and available < required and not args.allow_low_memory:
         parser.error(
             f"only {available / 1024**3:.2f} GiB appears available; "
-            f"need at least {args.min_available_gb:.1f} GiB. Stop other MPS services or pass --allow-low-memory."
+            f"need at least {args.min_available_gb:.1f} GiB. Stop other model services or pass --allow-low-memory."
         )
 
     started = time.perf_counter()

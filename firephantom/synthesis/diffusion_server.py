@@ -51,7 +51,8 @@ class Img2ImgRequest(BaseModel):
 
 
 def _device_and_dtype(torch):
-    if torch.backends.mps.is_available():
+    mps = getattr(torch.backends, "mps", None)
+    if mps is not None and mps.is_available():
         # Tiny-SD produces all-zero pixels with float16 on Apple MPS.
         return "mps", torch.float32
     if torch.cuda.is_available():
@@ -70,7 +71,7 @@ def _check_memory_headroom() -> None:
         raise RuntimeError(
             f"Stable Diffusion load blocked by memory guard: "
             f"available {available if available is not None else 'unknown'} GiB, "
-            f"minimum {minimum:g} GiB; stop other MPS jobs first"
+            f"minimum {minimum:g} GiB; stop other model jobs first"
         )
 
 

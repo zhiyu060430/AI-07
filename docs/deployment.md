@@ -12,7 +12,7 @@ Apple Silicon 自动使用 MPS，训练器也可在 CUDA/CPU 上运行。本机�
 
 `GET /api/v1/system/status` 会返回 Apple Silicon 的可用统一内存、swap 概况以及 Blender、Tiny-SD、Label Studio 的可达性。默认 `FIREPHANTOM_MIN_AVAILABLE_GB=3`；Tiny-SD 冷加载前若低于该值会拒绝启动，避免把系统推入更严重的 swap。需要在已确认风险的短 smoke run 中关闭保护时才设置 `FIREPHANTOM_MEMORY_GUARD=0`。
 
-使用 `scripts/start-local.sh` 启动本地 API 和可用的模型/标注服务；默认前台监管本次创建的进程，按 Ctrl-C 会一并停止。也可用 `scripts/stop-local.sh` 停止本次运行目录里记录的服务。大数据可以设 `FIREPHANTOM_RUNTIME` 到外接盘，避免占满系统盘。
+macOS 和 Linux 使用 `scripts/start-local.sh` 启动本地 API 和可用的模型/标注服务；Windows 使用 `py -3.11 -m firephantom.local` 或 `scripts/start-local.ps1`。两边都进入同一个 Python 启动器。默认前台监管本次创建的进程，按 Ctrl-C 会一并停止。停止时 macOS/Linux 用 `scripts/stop-local.sh`，Windows 用 `scripts/stop-local.ps1`。大数据可以设 `FIREPHANTOM_RUNTIME` 到外接盘，避免占满系统盘。
 
 工作台账号存在 FirePhantom 的 PostgreSQL 库 `firephantom`。第一次打开 `http://127.0.0.1:8765/` 时创建管理员，之后由管理员添加账号。打开标注页不会再要求 Label Studio 密码。Label Studio 1.23 社区版没有 OAuth；服务用影子账号签发浏览器会话。`firephantom@localhost` 只给启动脚本的 `--init` 和服务令牌使用，密码在运行目录的 `label-studio.password`（默认 `./data/label-studio.password`）。服务令牌在同目录的 `label-studio.token`，长度是 40 个字符，因为 Label Studio 的 `authtoken_token.key` 是 `varchar(40)`。人的密码不会写入 Label Studio。
 
