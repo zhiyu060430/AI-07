@@ -58,7 +58,7 @@ def main():
         settings['AI07_DB_PASSWORD']=make_url(os.environ['AI07_DATABASE_URL']).password
         # Network settings belong to the target machine, not to the archived machine.
         current=dict(line.split('=',1) for line in (ROOTS['credentials']/'compose.env').read_text().splitlines() if '=' in line)
-        for key in ('AI07_WEB_PORT','AI07_API_PORT','AI07_LS_PORT','AI07_BIND_ADDRESS','AI07_ALLOWED_ORIGINS','AI07_LABEL_STUDIO_PUBLIC_URL','AI07_SECURE_COOKIE','AI07_GPU'):
+        for key in ('AI07_WEB_PORT','AI07_API_PORT','AI07_LS_PORT','AI07_BIND_ADDRESS','AI07_ALLOWED_ORIGINS','AI07_LABEL_STUDIO_PUBLIC_URL','AI07_SECURE_COOKIE','AI07_GPU','AI07_REQUIRE_LOGIN'):
             if key in current:settings[key]=current[key]
         env_file.write_text(''.join(f'{k}={v}\n' for k,v in settings.items()))
         database('pg_restore','--clean','--if-exists','--no-owner','--exit-on-error','--single-transaction',str(unpack/'database.dump'))

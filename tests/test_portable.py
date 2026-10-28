@@ -26,7 +26,7 @@ def test_managed_accounts_first_admin_and_no_self_elevation(client,monkeypatch):
     monkeypatch.setenv('AI07_MANAGED_ACCOUNTS','1')
     assert client.get('/api/auth').json()['setup_required']
     first=client.post('/api/register',json={'username':'owner','password':'long-password-123','role':'tester'})
-    assert first.status_code==200 and first.json()['role']=='product'
+    assert first.status_code==200 and first.json()['role']=='architect'
     client.post('/api/logout')
     assert client.get('/api/auth').json()['registration_open'] is False
     second=client.post('/api/register',json={'username':'second','password':'long-password-123','role':'product'})

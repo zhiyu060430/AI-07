@@ -134,7 +134,7 @@ def test_guest_catalog_has_real_file_backing(client):
 def test_setup_and_session_lifecycle(client):
     login(client)
     assert client.post('/api/setup',json={}).status_code==409
-    assert client.get('/api/auth').json()['user']['role']=='product'
+    assert client.get('/api/auth').json()['user']['role']=='architect'
     assert client.post('/api/logout').status_code==200
     assert client.get('/api/auth').json()['user'] is None
     assert client.post('/api/login',json={'username':'manager','password':'wrong-password'}).status_code==401

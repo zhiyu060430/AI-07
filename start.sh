@@ -56,7 +56,7 @@ load_settings() {
         --mount "type=volume,source=${project}_platform-state,target=/platform" \
         --mount "type=volume,source=${project}_backups,target=/backups" \
         -e AI07_WEB_PORT -e AI07_API_PORT -e AI07_LS_PORT -e AI07_GPU \
-        -e AI07_BIND_ADDRESS -e AI07_ALLOWED_ORIGINS -e AI07_LABEL_STUDIO_PUBLIC_URL -e AI07_SECURE_COOKIE \
+        -e AI07_BIND_ADDRESS -e AI07_ALLOWED_ORIGINS -e AI07_LABEL_STUDIO_PUBLIC_URL -e AI07_SECURE_COOKIE -e AI07_REQUIRE_LOGIN \
         "$python_image" python - < scripts/portable-init.py)
     while IFS='=' read -r key value; do
         case "$key" in AI07_*) export "$key=$value";;esac

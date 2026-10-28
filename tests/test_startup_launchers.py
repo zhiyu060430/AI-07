@@ -42,7 +42,10 @@ elif a[:1]==['compose']:
 else:raise AssertionError(a)
 ''',encoding='utf-8')
     if os.name=='nt':
-        (binary/'docker.cmd').write_text(f'@echo off\n"{sys.executable}" "{fake}" %*\n',encoding='utf-8')
+        # cmd.exe needs CRLF and the Windows ANSI codepage here: the shim embeds the
+        # repository path (which may contain non-ASCII characters), and a UTF-8 batch
+        # file would be mis-decoded so the fake docker never runs.
+        (binary/'docker.cmd').write_text(f'@echo off\r\n"{sys.executable}" "{fake}" %*\r\n',encoding='mbcs')
         shell=shutil.which('powershell')
         if not shell:pytest.skip('Windows PowerShell unavailable')
         command=[shell,'-NoProfile','-ExecutionPolicy','Bypass','-File',str(project/'start.ps1')]

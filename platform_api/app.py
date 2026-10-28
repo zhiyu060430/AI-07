@@ -32,6 +32,7 @@ from fire_modeling.io import sha256
 from .firephantom import service_status as firephantom_status, PUBLIC_URL as FIREPHANTOM_PUBLIC_URL
 
 REQUESTS={'total':0,'errors':0}; started=time.time(); setup_lock=threading.Lock()
+ADMIN_ROLES={'architect'}
 WRITERS={'product','architect','developer','tester','ops'}
 BUILDERS={'product','architect','developer'}
 
@@ -44,6 +45,14 @@ app=FastAPI(title='AI-07 火焰数据工作台',version='0.2.0',lifespan=lifespa
 @app.middleware('http')
 async def protect_origin(request,call_next):
     REQUESTS['total']+=1
+    path=request.url.path
+    public_auth={'/api/auth','/api/login','/api/logout','/api/setup','/api/register','/api/health'}
+    protected=path.startswith('/api/') or path in {'/docs','/openapi.json','/metrics'}
+    # Internal worker endpoints enforce their own shared-key authentication.
+    if os.getenv('AI07_REQUIRE_LOGIN')=='1' and protected and path not in public_auth and not path.startswith('/api/internal/'):
+        with Session() as db:
+            if current_user(request,db) is None:
+                return JSONResponse({'detail':'请登录工作区后访问平台数据'},status_code=401,headers={'Cache-Control':'no-store'})
     if request.method not in {'GET','HEAD','OPTIONS'}:
         origin=request.headers.get('origin')
         allowed={f'http://{h}:{p}' for h in ('localhost','127.0.0.1') for p in (3000,5173,8090,8088)}
@@ -79,7 +88,7 @@ def access(db,user,project,write=False,roles=None):
         if project==DEFAULT_PROJECT and not write: return
         raise HTTPException(401,'请登录工作区后继续')
     if not db.get(Member,(project,user.id)): raise HTTPException(403,'没有该项目的访问权限')
-    if write and user.role not in (roles or WRITERS): raise HTTPException(403,'当前角色没有该操作权限')
+    if write and user.role not in ((roles or WRITERS)|ADMIN_ROLES): raise HTTPException(403,'当前角色没有该操作权限')
 
 def scoped(db,model,id,user,write=False,roles=None):
     row=db.get(model,id)
@@ -100,6 +109,7 @@ def login_cookie(response,user,db):
 def auth(user=Depends(current_user),db=Depends(db_session)):
     first=db.scalar(select(func.count()).select_from(User))==0
     return {'user':user_view(user),'setup_required':first,
+            'require_login':os.getenv('AI07_REQUIRE_LOGIN')=='1',
             'registration_open':first or os.getenv('AI07_MANAGED_ACCOUNTS')!='1'}
 
 @app.post('/api/setup')
@@ -108,7 +118,7 @@ def setup(data:dict,response:Response,db=Depends(db_session)):
         if db.scalar(select(func.count()).select_from(User)): raise HTTPException(409,'管理员已创建，请登录')
         username=str(data.get('username','')).strip()
         if not re.fullmatch(r'[A-Za-z0-9_-]{3,32}',username): raise ValueError('用户名需为3至32位字母、数字或下划线')
-        user=User(id=uid(),username=username,password_hash=password_hash(data.get('password')),role='product')
+        user=User(id=uid(),username=username,password_hash=password_hash(data.get('password')),role='architect')
         db.add(user); db.add(Member(project_id=DEFAULT_PROJECT,user_id=user.id))
         db.get(Project,DEFAULT_PROJECT).owner_id=user.id
         login_cookie(response,user,db); audit(db,DEFAULT_PROJECT,user.username,'创建本地管理员'); db.commit()
@@ -151,7 +161,7 @@ def projects(user=Depends(current_user),db=Depends(db_session)):
 
 @app.post('/api/projects')
 def create_project(data:dict,user=Depends(current_user),db=Depends(db_session)):
-    if not user or user.role!='product': raise HTTPException(403,'仅产品经理可创建项目')
+    if not user or user.role not in ADMIN_ROLES: raise HTTPException(403,'仅架构师（管理员）可创建项目')
     name=str(data.get('name','')).strip()
     if not 1<=len(name)<=80: raise ValueError('请输入1至80字的项目名称')
     id=uid(); db.add(Project(id=id,name=name,owner_id=user.id)); db.add(Member(project_id=id,user_id=user.id)); db.commit()
@@ -159,13 +169,13 @@ def create_project(data:dict,user=Depends(current_user),db=Depends(db_session)):
 
 @app.get('/api/projects/{project}/users')
 def users(project:str,user=Depends(current_user),db=Depends(db_session)):
-    access(db,user,project,True,{'product'})
+    access(db,user,project,True,ADMIN_ROLES)
     ids=list(db.scalars(select(Member.user_id).where(Member.project_id==project)))
     return [user_view(u) for u in db.scalars(select(User).where(User.id.in_(ids)))]
 
 @app.post('/api/projects/{project}/users')
 def create_user(project:str,data:dict,user=Depends(current_user),db=Depends(db_session)):
-    access(db,user,project,True,{'product'})
+    access(db,user,project,True,ADMIN_ROLES)
     name=str(data.get('username','')); role=data.get('role')
     if not re.fullmatch(r'[A-Za-z0-9_-]{3,32}',name) or role not in WRITERS: raise ValueError('用户名或角色不合法')
     if db.scalar(select(User).where(User.username==name)): raise ValueError('用户名已存在')
@@ -601,7 +611,7 @@ def settings(user=Depends(current_user),db=Depends(db_session)):
 
 @app.post('/api/settings/label-studio')
 def save_label(data:dict,user=Depends(current_user),db=Depends(db_session)):
-    if not user or user.role not in {'product','ops'}: raise HTTPException(403,'仅产品经理或运维师可以配置集成')
+    if not user or user.role not in ADMIN_ROLES|{'ops'}: raise HTTPException(403,'仅架构师（管理员）或运维师可以配置集成')
     url=str(data.get('url','')).rstrip('/')
     # Service configuration is local-only; public SSRF destinations are not accepted.
     if not re.fullmatch(r'http://(localhost|127\.0\.0\.1|annotation-platform)(:\d{2,5})?',url): raise ValueError('仅支持本机或Compose内Label Studio地址')

@@ -1,0 +1,9 @@
+# Optional temporary HTTPS ingress; only the web service is reachable through it.
+services:
+  public-tunnel:
+    image: ${AI07_TUNNEL_IMAGE:-cloudflare/cloudflared:latest}
+    profiles: [sharing]
+    command: [tunnel, --no-autoupdate, --protocol, '${AI07_TUNNEL_PROTOCOL:-auto}', --metrics, '0.0.0.0:2000', --url, 'http://platform-web:80']
+    restart: 'no'
+    depends_on:
+      platform-web: {condition: service_started}

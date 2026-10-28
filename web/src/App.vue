@@ -16,18 +16,20 @@ const loading=ref(true),busy=ref(false),error=ref(''),toast=ref(''),sidebarOpen=
 const authDialog=ref<HTMLElement|null>(null);let previousFocus:HTMLElement|null=null
 watch(showAuth,async value=>{if(value){previousFocus=document.activeElement as HTMLElement;authTab.value=auth.value.setup_required?'register':'login';authError.value='';await nextTick();authDialog.value?.querySelector<HTMLInputElement>('input')?.focus()}else previousFocus?.focus()})
 function handleDialogKey(event:KeyboardEvent){if(!showAuth.value)return;if(event.key==='Escape'){event.preventDefault();showAuth.value=false;return}if(event.key==='Tab'){const controls=[...(authDialog.value?.querySelectorAll<HTMLElement>('button:not([disabled]),input,select,a[href]')||[])];const first=controls[0],last=controls.at(-1);if(event.shiftKey&&document.activeElement===first){event.preventDefault();last?.focus()}else if(!event.shiftKey&&document.activeElement===last){event.preventDefault();first?.focus()}}}
-const loginForm=ref({username:'',password:''}),authError=ref(''),showUsers=ref(false),newUser=ref({username:'',password:'',role:'developer'}),members=ref<any[]>([])
+const loginForm=ref({username:'',password:''}),authError=ref(''),newUser=ref({username:'',password:'',role:'developer'}),members=ref<any[]>([]),membersLoading=ref(false),membersError=ref('')
+const canManageUsers=computed(()=>auth.value.user?.role==='architect')
+const visibleNav=computed(()=>canManageUsers.value?[...nav,{id:'members',name:'项目成员',icon:Users}]:nav)
 const authTab=ref('login'),registerForm=ref({username:'',password:'',role:'tester'})
 const config=ref<any>({scene_id:'room_demo',scene_type:'indoor',room_size_m:[4,4,3],cell_size_m:.2,fire_center_m:[2,2],fire_size_m:[.8,.8],peak_hrr_kw:100,duration_s:5,ramp_up_s:2,ambient_temperature_c:20,wind_m_s:0,seed:42,width:384,height:384,camera_angles_deg:[25,65],weather:['clear','fog'],plume_steps:45,particles_per_step:10})
 const generate=ref({name:'室内火焰 · 多视角',route:'physics',count:2,enhance:true}),versionForm=ref({run_id:new URLSearchParams(location.search).get('run')||'',name:'v0.1.0',research_snapshot:false}),labelForm=ref({url:'http://127.0.0.1:8080',token:'',auth_type:'Token'})
 const continuousReview=ref(false),labelState=ref<any>(null),labelBusy=ref(false),labelError=ref('')
 const uploadFile=ref<File|null>(null),sourceUrl=ref(''),license=ref(''),showImport=ref(false)
-const titles:Record<string,string>={'scene-editor':'三维场景编辑',simulation:'火焰仿真与数据合成',overview:'火焰数据工作台',generate:'从场景开始，生成可追溯的数据',jobs:'任务中心',samples:'样本与标注',versions:'版本与导出',evaluation:'用真实证据，评价合成数据',engineering:'工程与验收'}
+const titles:Record<string,string>={members:'项目成员','scene-editor':'三维场景编辑',simulation:'火焰仿真与数据合成',overview:'火焰数据工作台',generate:'从场景开始，生成可追溯的数据',jobs:'任务中心',samples:'样本与标注',versions:'版本与导出',evaluation:'用真实证据，评价合成数据',engineering:'工程与验收'}
 const kickers:Record<string,string>={simulation:'SIMULATION & SYNTHESIS',jobs:'OPERATIONS',samples:'SAMPLE DATA',versions:'VERSION CONTROL',evaluation:'EVIDENCE LAB',engineering:'ENGINEERING','scene-editor':'3D STUDIO'}
-const subtitles:Record<string,string>={'scene-editor':'模型、燃烧物、结构、灯光与相机，共用一份场景进入FDS与Blender。',simulation:'三维编辑页完成仿真；在这里复用求解结果，生成并管理数据批次。',overview:'物理仿真、生成增强与人工审核，在同一个工作区协作。',generate:'配置工况、选择路线，参数会随每次执行一起保留。',jobs:'查看每个阶段的进度、日志和产物。',samples:'候选标签只是起点。每个发布样本，都需要人工确认。',versions:'冻结图像、标签与审核记录，使用DVC和Git保留每一次变化。',evaluation:'分布相似度、物理误差与检测收益，各自使用独立评价依据。',engineering:'把功能、指标和统一交付要求，落实到可检查的证据。'}
+const subtitles:Record<string,string>={members:'为当前项目创建成员账户，设置初始密码并分配角色。','scene-editor':'模型、燃烧物、结构、灯光与相机，共用一份场景进入FDS与Blender。',simulation:'三维编辑页完成仿真；在这里复用求解结果，生成并管理数据批次。',overview:'物理仿真、生成增强与人工审核，在同一个工作区协作。',generate:'配置工况、选择路线，参数会随每次执行一起保留。',jobs:'查看每个阶段的进度、日志和产物。',samples:'候选标签只是起点。每个发布样本，都需要人工确认。',versions:'冻结图像、标签与审核记录，使用DVC和Git保留每一次变化。',evaluation:'分布相似度、物理误差与检测收益，各自使用独立评价依据。',engineering:'把功能、指标和统一交付要求，落实到可检查的证据。'}
 const filtered=computed(()=>samples.value.filter(s=>(!search.value||`${s.sample_id} ${s.run_name}`.toLowerCase().includes(search.value.toLowerCase()))&&(source.value==='all'||s.route===source.value)&&(reviewFilter.value==='all'||s.review_status===reviewFilter.value)&&(runFilter.value==='all'||s.run_id===runFilter.value)&&(qualityFilter.value==='all'||(qualityFilter.value==='pass'?s.quality?.auto_screen_pass===true:s.quality?.auto_screen_pass===false))))
 const runs=computed(()=>overview.value?.runs||[])
-const roleNames:Record<string,string>={product:'产品经理',architect:'架构师',developer:'开发工程师',tester:'测试师',ops:'运维师'}
+const roleNames:Record<string,string>={product:'产品经理',architect:'架构师（管理员）',developer:'开发工程师',tester:'测试师',ops:'运维师'}
 const featured=computed(()=>[...samples.value].sort((a,b)=>Number(b.expected_fire)-Number(a.expected_fire)||Number(a.route==='preview')-Number(b.route==='preview')).slice(0,4))
 const stageNames:Record<string,string>={queued:'等待工作进程',preparing:'检查参数','synthesis-render':'多条件基础渲染','synthesis-enhance':'受控扩散增强',original:'原版Mantaflow烘焙与渲染',video:'固定机位渲染与MP4编码',physics:'FDS物理求解',blender:'Blender批量渲染',enhance:'SD生成增强',preview:'程序预览',fid:'Inception/FID评价',succeeded:'产物生成完成',failed:'阶段执行失败',cancelled:'任务已取消'}
 const curvePath=computed(()=>{const c=overview.value?.curve||[];if(!c.length)return ''; const maxX=Math.max(...c.map((p:any)=>p.time),1),maxY=Math.max(...c.map((p:any)=>p.hrr),1);return c.map((p:any,i:number)=>`${i?'L':'M'}${36+p.time/maxX*514},${150-p.hrr/maxY*116}`).join(' ')})
@@ -43,6 +45,7 @@ function go(id:string){if(id==='generate')id='simulation';page.value=id;location
 function notify(message:string){toast.value=message;clearTimeout(toastTimer);toastTimer=setTimeout(()=>toast.value='',4500)}
 function ensureWrite(){if(!auth.value.user){showAuth.value=true;return false}return true}
 async function refresh(quiet=false){
+ if(auth.value.require_login&&!auth.value.user){loading.value=false;return}
  if(!quiet)loading.value=true
  try{const p=project.value;const [o,s,j,v,e,t,g,a,c]=await Promise.all([api(`/projects/${p}/overview`),api(`/projects/${p}/samples`),api(`/projects/${p}/jobs`),api(`/projects/${p}/versions`),api(`/projects/${p}/experiments`),api('/settings'),api(`/projects/${p}/engineering`),api(`/projects/${p}/events`),api(`/projects/${p}/scenes`)])
  overview.value=o;samples.value=s;jobs.value=j;versions.value=v;experiments.value=e;settings.value=t;engineering.value=g;events.value=a;scenes.value=c
@@ -57,9 +60,9 @@ async function act(action:()=>Promise<any>,success='操作已完成'){
  busy.value=true;error.value=''
  try{const result=await action();notify(success);await refresh(true);return result}catch(e){error.value=(e as Error).message}finally{busy.value=false}
 }
-async function authenticate(){busy.value=true;authError.value='';try{const user=await api('/login','POST',loginForm.value);auth.value={user,setup_required:false};showAuth.value=false;projects.value=await api('/projects');await refresh();notify('已进入工作区')}catch(e){authError.value=(e as Error).message}finally{busy.value=false}}
+async function authenticate(){busy.value=true;authError.value='';try{const user=await api('/login','POST',loginForm.value);auth.value={...auth.value,user,setup_required:false};showAuth.value=false;projects.value=await api('/projects');await refresh();notify('已进入工作区')}catch(e){authError.value=(e as Error).message}finally{busy.value=false}}
 async function register(){busy.value=true;authError.value='';try{const user=await api(auth.value.setup_required?'/setup':'/register','POST',registerForm.value);auth.value={...auth.value,user,setup_required:false};showAuth.value=false;projects.value=await api('/projects');await refresh();notify('账户已创建，已进入工作区')}catch(e){authError.value=(e as Error).message}finally{busy.value=false}}
-async function logout(){await api('/logout','POST');auth.value=await api('/auth');project.value='ai07';projects.value=await api('/projects');await refresh()}
+async function logout(){await api('/logout','POST');auth.value=await api('/auth');project.value='ai07';if(auth.value.require_login){projects.value=[];overview.value=null;samples.value=[];jobs.value=[];versions.value=[];experiments.value=[];scenes.value=[];events.value=[];settings.value=null;engineering.value=null;selected.value=null;selectedJob.value=null;members.value=[];membersError.value='';showAuth.value=true;return}projects.value=await api('/projects');await refresh()}
 function openSample(s:any){runFilter.value=s.run_id;selected.value=s;window.scrollTo({top:0,behavior:'smooth'})}
 function selectScene(id:string){const s=scenes.value.find(x=>x.id===id);if(s){config.value=JSON.parse(JSON.stringify(s.config));generate.value.name=s.name+' · 多视角'}}
 async function createJob(){const result=await act(()=>api(`/projects/${project.value}/jobs`,'POST',{...generate.value,config:config.value,idempotency_key:crypto.randomUUID()}),'任务已排队，执行状态可在任务中心查看');if(result){selectedJob.value=result;go('jobs')}}
@@ -72,9 +75,20 @@ async function labelAction(action:string){await act(()=>api(`/runs/${runFilter.v
 async function evaluationAction(path:string,data:any){return await act(()=>api(path,'POST',data),'评价作业已提交，结果完成后自动显示')}
 async function createVersion(){await act(()=>api(`/projects/${project.value}/versions`,'POST',versionForm.value),'DVC研究快照已发布')}
 async function upload(){if(!uploadFile.value&&!sourceUrl.value.trim()){error.value='请上传COCO ZIP或填写可下载的数据集链接（二选一）';return}const form=new FormData();if(uploadFile.value)form.append('file',uploadFile.value);form.append('source_url',sourceUrl.value);form.append('license_note',license.value);const result=await act(()=>api(`/projects/${project.value}/import-coco`,'POST',form),'真实数据已导入，仍需人工确认标签');if(result){showImport.value=false;uploadFile.value=null}}
-async function manageUsers(){if(!ensureWrite())return;try{members.value=await api(`/projects/${project.value}/users`);showUsers.value=!showUsers.value}catch(e){error.value=(e as Error).message}}
-async function addUser(){await act(()=>api(`/projects/${project.value}/users`,'POST',newUser.value),'项目成员已创建');members.value=await api(`/projects/${project.value}/users`);newUser.value={username:'',password:'',role:'developer'}}
-onMounted(async()=>{window.addEventListener('keydown',handleDialogKey);try{auth.value=await api('/auth');projects.value=await api('/projects');await refresh()}catch(e){error.value=(e as Error).message;loading.value=false}timer=setInterval(()=>{if(!busy.value&&!showAuth.value)refresh(true)},7000)})
+async function loadMembers(){
+ members.value=[];membersError.value=''
+ if(!canManageUsers.value)return
+ const p=project.value;membersLoading.value=true
+ try{const result=await api(`/projects/${p}/users`);if(p===project.value&&canManageUsers.value)members.value=result}catch(e){if(p===project.value)membersError.value=(e as Error).message}finally{if(p===project.value)membersLoading.value=false}
+}
+function manageUsers(){if(!ensureWrite())return;go('members')}
+async function addUser(){
+ if(busy.value||!ensureWrite())return
+ busy.value=true;membersError.value=''
+ try{await api(`/projects/${project.value}/users`,'POST',newUser.value);newUser.value={username:'',password:'',role:'developer'};notify('项目成员已创建，可使用初始密码登录');await loadMembers()}catch(e){membersError.value=(e as Error).message}finally{busy.value=false}
+}
+watch([page,project,()=>auth.value.user?.id],()=>{if(page.value==='members')loadMembers()},{immediate:true})
+onMounted(async()=>{window.addEventListener('keydown',handleDialogKey);try{auth.value=await api('/auth');if(auth.value.require_login&&!auth.value.user){loading.value=false;showAuth.value=true}else{projects.value=await api('/projects');await refresh()}}catch(e){error.value=(e as Error).message;loading.value=false}timer=setInterval(()=>{if(!busy.value&&!showAuth.value)refresh(true)},7000)})
 onUnmounted(()=>{window.removeEventListener('keydown',handleDialogKey);clearInterval(timer);clearTimeout(toastTimer)})
 </script>
 
@@ -83,8 +97,8 @@ onUnmounted(()=>{window.removeEventListener('keydown',handleDialogKey);clearInte
   <aside class="sidebar" :class="{open:sidebarOpen}">
    <a class="brand" href="#overview" @click.prevent="go('overview')"><span class="brand-mark"><Flame :size="25" :stroke-width="1.7"/></span><span>焰序<span class="brand-en">FLAME WORKBENCH</span></span></a>
    <div class="workspace-label">AI-07 · 合成火焰数据集</div>
-   <nav aria-label="主导航"><button v-for="n in nav" :key="n.id" :class="{selected:page===n.id}" @click="go(n.id)"><component :is="n.icon" :size="18"/><span>{{n.name}}</span><ChevronRight v-if="page===n.id" :size="14"/></button></nav>
-   <div class="sidebar-bottom"><div class="local-state"><span class="status-dot" :class="{online:settings?.worker.online}"></span>{{settings?.worker.online?'工作进程已连接':'工作进程未连接'}}</div><p>让数据有来路，让结果可复现。</p></div>
+   <nav aria-label="主导航"><button v-for="n in visibleNav" :key="n.id" :class="{selected:page===n.id}" @click="go(n.id)"><component :is="n.icon" :size="18"/><span>{{n.name}}</span><ChevronRight v-if="page===n.id" :size="14"/></button></nav>
+   <div class="sidebar-bottom"><div class="local-state"><span class="status-dot" :class="{online:settings?.worker.online}"></span>{{auth.require_login&&!auth.user?'登录后查看工作进程状态':settings?.worker.online?'工作进程已连接':'工作进程未连接'}}</div><p>让数据有来路，让结果可复现。</p></div>
   </aside>
   <div v-if="sidebarOpen" class="sidebar-scrim" @click="sidebarOpen=false"></div>
   <main class="main-shell">
@@ -137,11 +151,24 @@ onUnmounted(()=>{window.removeEventListener('keydown',handleDialogKey);clearInte
      <EvaluationWorkbench :key="project" :project="project" :runs="runs" :versions="versions" :experiments="experiments" :jobs="jobs" :busy="busy" :execute="evaluationAction" @import="go('samples');showImport=true" @review="go('samples')" @job="id=>{selectedJob=jobs.find(j=>j.id===id);go('jobs')}"/>
     </template>
 
+    <template v-else-if="page==='members'">
+     <section v-if="!auth.user" class="form-panel"><p>请先登录管理员账户，再管理项目成员。</p><button class="primary" @click="showAuth=true">登录工作区</button></section>
+     <section v-else-if="!canManageUsers" class="form-panel"><h2>需要管理员权限</h2><p>当前角色为{{roleNames[auth.user.role]}}。仅管理员可以创建项目成员，请联系项目管理员。</p></section>
+     <section v-else class="form-panel user-management" aria-label="项目成员管理" :aria-busy="membersLoading">
+      <div class="section-heading"><h2>当前项目成员</h2><button class="text-button" :disabled="membersLoading||busy" @click="loadMembers"><RefreshCw :size="15"/>刷新成员</button></div>
+      <div v-if="membersError" class="message error" role="alert">{{membersError}}</div>
+      <p v-if="membersLoading" role="status">正在读取项目成员…</p>
+      <div v-else class="member-list"><span v-for="m in members" :key="m.id">{{m.username}} <small>{{roleNames[m.role]}}</small></span><p v-if="!members.length&&!membersError">当前项目暂无成员。</p></div>
+      <h2>添加项目成员</h2><p class="context-note">创建后，成员可以用自己的账户登录同一平台。管理员负责创建和管理成员；其他角色按分配的权限操作项目。</p>
+      <form class="form-grid" @submit.prevent="addUser"><label>用户名<input v-model="newUser.username" required minlength="3" maxlength="32" pattern="[A-Za-z0-9_-]{3,32}" autocomplete="off" aria-describedby="member-username-help"><small id="member-username-help">3–32位字母、数字、下划线或短横线</small></label><label>初始密码<input v-model="newUser.password" type="password" required minlength="10" autocomplete="new-password"><small>至少10位，通过私密渠道告知成员</small></label><label>角色<select v-model="newUser.role"><option v-for="(name,id) in roleNames" :key="id" :value="id">{{name}}</option></select></label><button class="primary" :disabled="busy||membersLoading">{{busy?'正在添加…':'添加项目成员'}}</button></form>
+     </section>
+    </template>
+
     <template v-else-if="page==='engineering'&&engineering">
      <div class="engineering-top" v-reveal><section class="runtime-panel"><div class="section-heading"><div><span class="sec-kicker">RUNTIME</span><h2>运行与集成</h2></div><span class="badge neutral">{{settings?.database}}</span></div><div class="integration-list"><div v-for="s in settings?.stacks||[]" :key="s.name"><span class="integration-glyph"><component :is="[Activity,Box,Zap,ScanLine,GitBranch,Layers][settings?.stacks.indexOf(s)]" :size="17"/></span><strong>{{s.name}}</strong><span>{{s.purpose}}</span><span class="badge" :class="s.status==='ready'||s.status==='worker'?'approved':'pending'">{{s.status==='ready'?'已接入':s.status==='worker'?'Worker在线':s.status==='configure'?'需配置令牌':'Worker离线'}}</span></div></div><div class="button-row external-tools"><a href="/docs" target="_blank" class="text-button">OpenAPI <ArrowUpRight :size="14"/></a><a href="http://localhost:9090" target="_blank" class="text-button">Prometheus <ArrowUpRight :size="14"/></a><a href="http://localhost:3001" target="_blank" class="text-button">Grafana <ArrowUpRight :size="14"/></a><a href="http://localhost:9000" target="_blank" class="text-button">SonarQube <ArrowUpRight :size="14"/></a></div><p class="context-note">监控和Sonar按Compose配置启动；链接存在不代表服务已启动或门禁已通过。</p></section><section class="form-panel"><div class="section-heading"><div><span class="sec-kicker">ANNOTATION</span><h2>Label Studio连接</h2></div><Settings2 :size="18"/></div><form class="stacked-form" @submit.prevent="act(()=>api('/settings/label-studio','POST',labelForm),'集成配置已保存')"><label>本机服务地址<input v-model="labelForm.url" placeholder="http://127.0.0.1:8080" required></label><div class="form-grid"><label>令牌类型<select v-model="labelForm.auth_type"><option value="Token">Legacy Token</option><option value="Bearer">Bearer Token</option></select></label><label>服务令牌<input type="password" v-model="labelForm.token" autocomplete="off" required placeholder="仅保存到后端"></label></div><button class="secondary" :disabled="busy">保存连接设置</button><p class="context-note">已配置：{{settings?.label_studio.configured?'是':'否'}}。在样本页选择批次后同步候选任务，人工标注完成后再导入。</p></form></section></div>
      <section class="requirements-section" v-reveal><div class="section-heading"><div><span class="sec-kicker">FEATURE MAP</span><h2>功能与工程落点</h2></div><span class="quiet-label">AI · SE · 核心功能</span></div><div class="requirement-row" v-for="r in engineering.requirements" :key="r.id"><span class="requirement-id">{{r.id}}</span><div><h3>{{r.name}}</h3><p>{{r.detail}}</p></div><span class="badge" :class="r.status==='已接入'?'approved':'pending'">{{r.status}}</span><button class="icon-button" @click="r.page==='accounts'?manageUsers():go(r.page)" :aria-label="`打开${r.name}`"><ArrowUpRight :size="18"/></button></div></section>
      <section class="criteria-section" v-reveal><div class="section-heading"><div><span class="sec-kicker">ACCEPTANCE</span><h2>验收标准与实际证据</h2></div><span class="quiet-label">保留现有SRS阈值</span></div><div class="data-table-wrap"><table><thead><tr><th>验收项</th><th>要求</th><th>当前证据</th><th>状态</th></tr></thead><tbody><tr v-for="c in engineering.criteria" :key="c.id"><td><strong>{{c.name}}</strong><small>{{c.id}}</small></td><td>{{c.target}}</td><td>{{typeof c.actual==='string'?c.actual:JSON.stringify(c.actual)}}</td><td><span class="badge pending">{{c.status}}</span></td></tr></tbody></table></div></section>
-     <section v-if="showUsers" class="form-panel user-management"><h2>项目成员</h2><p class="context-note">账户与密码哈希存储于平台数据库（{{settings?.database}}）的 web_user 表：密码经 PBKDF2-SHA256 24万次迭代加盐，不保存明文；会话 Cookie 12 小时有效。容器独立部署中由首位用户创建管理员，后续成员由管理员创建并分配角色。</p><div class="member-list"><span v-for="m in members" :key="m.id">{{m.username}} <small>{{roleNames[m.role]}}</small></span></div><form class="form-grid" @submit.prevent="addUser"><label>用户名<input v-model="newUser.username" required minlength="3"></label><label>初始密码<input v-model="newUser.password" type="password" required minlength="10"></label><label>角色<select v-model="newUser.role"><option v-for="(name,id) in roleNames" :key="id" :value="id">{{name}}</option></select></label><button class="primary" :disabled="busy">添加项目成员</button></form></section>
+
     </template>
     </div>
    </div>
@@ -158,7 +185,7 @@ onUnmounted(()=>{window.removeEventListener('keydown',handleDialogKey);clearInte
      <li><CheckCircle2 :size="15"/>候选标注、人工审核与 Label Studio 同步</li>
      <li><CheckCircle2 :size="15"/>DVC 版本冻结与独立效果评价</li>
     </ul>
-    <div class="auth-status"><span class="status-dot" :class="{online:settings?.worker.online}"></span><span>{{settings?.worker.online?'工作进程已连接':'工作进程未连接'}}</span><span class="badge neutral">{{settings?.database}}</span></div>
+    <div class="auth-status"><span class="status-dot" :class="{online:settings?.worker.online}"></span><span>{{auth.require_login&&!auth.user?'登录后查看工作进程状态':settings?.worker.online?'工作进程已连接':'工作进程未连接'}}</span><span v-if="settings?.database" class="badge neutral">{{settings.database}}</span></div>
    </div>
    <div class="auth-side">
     <div v-if="!auth.setup_required" class="auth-tabs" role="tablist" aria-label="登录或注册"><button type="button" role="tab" :aria-selected="authTab==='login'" :class="{active:authTab==='login'}" @click="authTab='login'">登录</button><button v-if="auth.registration_open!==false" type="button" role="tab" :aria-selected="authTab==='register'" :class="{active:authTab==='register'}" @click="authTab='register'">注册</button></div>
@@ -174,7 +201,7 @@ onUnmounted(()=>{window.removeEventListener('keydown',handleDialogKey);clearInte
     </template>
     <template v-else>
      <h3 id="auth-title">{{auth.setup_required?'创建工作区':'注册工作区账户'}}</h3>
-     <p class="auth-desc">{{auth.setup_required?'首次使用：自行设置管理员用户名和密码，账户自动拥有产品经理权限。':'自助注册即时生效。五类角色都可提交任务与审核；产品经理额外可创建项目与管理成员。'}}</p>
+     <p class="auth-desc">{{auth.setup_required?'首次使用：自行设置管理员用户名和密码，账户自动拥有管理员权限。':'自助注册即时生效。五类角色都可提交任务与审核；管理员额外可创建项目与管理成员。'}}</p>
      <form class="stacked-form" @submit.prevent="register">
       <label>用户名<input v-model="registerForm.username" required minlength="3" maxlength="32" autocomplete="username" placeholder="3–32位字母、数字或下划线"></label>
       <label>密码<input v-model="registerForm.password" type="password" required minlength="10" maxlength="256" autocomplete="new-password" placeholder="至少10位"></label>

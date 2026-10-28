@@ -67,8 +67,8 @@ if($ApiPort){$env:AI07_API_PORT=[string]$ApiPort}
 if($LabelPort){$env:AI07_LS_PORT=[string]$LabelPort}
 if($Gpu){$env:AI07_GPU='1'}
 $initArgs=@('run','--rm','-i','--mount',"type=volume,source=${Project}_credentials,target=/state",'--mount',"type=volume,source=${Project}_platform-state,target=/platform",'--mount',"type=volume,source=${Project}_backups,target=/backups")
-foreach($key in @('AI07_WEB_PORT','AI07_API_PORT','AI07_LS_PORT','AI07_GPU','AI07_BIND_ADDRESS','AI07_ALLOWED_ORIGINS','AI07_LABEL_STUDIO_PUBLIC_URL','AI07_SECURE_COOKIE')){
-    if([Environment]::GetEnvironmentVariable($key)){$initArgs+=@('-e',$key)}
+foreach($key in @('AI07_WEB_PORT','AI07_API_PORT','AI07_LS_PORT','AI07_GPU','AI07_BIND_ADDRESS','AI07_ALLOWED_ORIGINS','AI07_LABEL_STUDIO_PUBLIC_URL','AI07_SECURE_COOKIE','AI07_REQUIRE_LOGIN')){
+    $initArgs+=@('-e',$key)
 }
 $pythonImage='python:3.12-slim-trixie@sha256:a6e34c598f2467ed0e9a8d349809fcd8b5c603269512df273a0bb1784edc11b1'
 Ensure-Image $pythonImage

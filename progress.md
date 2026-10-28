@@ -53,3 +53,19 @@
 2026-10-27 火焰可见性修复：编辑器起火点被结构掩埋时不再拒绝/零燃烧——role='fuel' 结构参与燃烧、结构面积按顶面+四侧计、无点燃物时自动点燃最近可燃物；渲染端修三处黑屏根因：相机落在实体内时退到实体外 2.6 倍尺寸回看、FDS 切片实体占位烟炱（~1.16kg/m³ 按 >0.05 屏蔽）、Blender 发光强度乘以密度 （改用 烟炱+反应区 的显示介质，VDB 缓存加 cache_version）。端到端作业 ffb26f1e5f4bd186b75b4844（HRR 峰值 111.8kW、峰值 HRRPUV 2.19、燃烧体积 73m³）与 9f473a837416aee7c6440f25（3 帧均值 64→150→145、质量门 3/3、MP4 48.9KB）通过；test_volume+test_video+test_editor_contract 15 项全绿。注意：改渲染语义后必须重建 ai07-modeling:blender 镜像。
 
 2026-10-28 真实数据导入二选一：import-coco 支持仅粘贴数据集链接导入（授权可留空登记为未登记）——platform_api/remote_import.py 实现 SSRF 防护（逐跳校验、放行本机代理 fake-IP 段 198.18.0.0/15）、figshare/机构 figshare 文章页链接自动经公开 API 解析 ZIP、≤800MB 流式下载、COCO/YOLO 双格式自动识别、火焰优先确定性抽样解包（与 value_chain convert 同参数 900/350/640/82）并重写 coco.json；上传 ZIP 路径保持必须来源+授权不变。实测：CQU 页面链接 → 316秒 → 下载 545MB → yolo 采样 1250/11021 → 导入 run f2b72155ec1e96722a35b535（待审核）。Label Studio 服务端连接/推送实测正常，完整工具（8082）需用服务账号 ai07-service@localhost 登录（密码在 compose.env），页面文案已注明；前端导入面板改为文件可选并区分按钮文案。tests 119 项全绿。
+
+2026-10-28容器部署进行中：实现Windows/Linux启动器、CPU/GPU构建模式、原生引擎Worker、管理员初始化和整栈备份恢复。自动审批拒绝持久Docker socket挂载后改为无socket方案。隔离项目ai07-portable-check正在构建，端口13000/18092/18082。
+
+容器改造回归：126项测试通过（含新增原生Worker命令、管理员初始化、CPU模式GPU门禁）；先前pytest卡住的原因是沙箱阻止asyncio本地socketpair，已在允许回环的环境验证。隔离CPU构建已自动完成引擎下载、编辑器及内置简模。
+
+2026-10-28完成：128测试通过（20.39秒）；原生预览0.62秒、FDS→Blender4.26秒；真实恢复验证原密码、图像哈希、批次、新写入和Label Studio权限。主平台迁移归档legacy-20261028T151733.tar约9.11GiB，存于ai07-portable_backups卷。所有业务记录数量及账户摘要一致；Web/API/Label Studio健康200，标注令牌认证通过。GPU Worker实测torch2.7.1+cu128、RTX5060Laptop、CUDA张量16.0、SD权重存在，平台inpainting能力开启。隔离测试容器/网络/七个测试卷已清理。原数据未删；未进行Google授权或云部署。首次网络故障通过固定digest、HTTPS、校验缓存/重试/镜像降级解决；Range协议错误仍立即拒绝。
+
+2026-10-28启动EOF修复及上传完成：日常启动检测已有CPU/GPU镜像与模型，跳过构建/拉取，更新源码显式-Rebuild；首次拉取和网络构建故障有限重试。原命令start.ps1 -InstallDocker真实启动成功。Windows131项回归通过，Linux启动器3项通过。提交93ae9db已通过现有SSH身份的GitHub官方443通道推送到Tindra-Wang/flame main；未更改全局SSH或远程配置，未上传数据、模型、凭据及本机会话记录。
+
+2026-10-28跨网络共享完成：Cloudflare官方Quick Tunnel运行于独立容器，仅转发platform-web；启用AI07_REQUIRE_LOGIN和Secure会话，匿名业务接口401、关闭公开注册，Worker接口保持共享密钥认证。140项回归通过；真实公网临时成员登录、2985条共享样本、Worker在线、越权403和退出401验证通过，临时成员清理后原3用户保留。HTTP/2出站在当前网络受阻，自动协议通过QUIC连通；ready200且公网auth200。当前浏览器访问偶有超时，不承诺临时隧道持续可用。说明及Start/Status/Stop脚本完成；数据仍在本机Docker卷，新改动尚未提交推送。
+
+2026-10-28成员入口修复：废除工程页底部隐藏表单，管理员侧栏新增“项目成员”，工程第一项箭头跳转#members独立页面；非管理员给出权限说明，加载/创建失败在页内提示，失败保留输入。Vue类型检查及生产构建通过，网页容器已更新。浏览器实测6个工程箭头跳转、创建成员成功、重复用户名错误保留输入、390px无横向溢出、普通成员隐藏入口且接口403。两名临时账户及会话/成员关系已清理，保留原3用户。
+
+2026-10-28管理员对应关系调整：经核对architect账号实际role=product，将用户名改为admin，保持账号ID、密码哈希和项目关联不变；product界面统一显示管理员（产品经理），architect角色仍为架构师。Vue类型检查及Docker生产构建通过，网页容器已更新。
+
+2026-10-28用户澄清后纠正：管理员权限从product转为architect，首次初始化角色为architect；架构师获得受限管理/审核权限但仍受项目成员隔离。product保留业务角色权限，移除项目创建、成员管理和集成管理特权（运维仍可配置集成）。账号用户名恢复architect、role=architect，密码及ID未变；前端显示架构师（管理员）。60项相关测试通过，Docker API/Web已更新；真实成员接口200，临时会话已清理。

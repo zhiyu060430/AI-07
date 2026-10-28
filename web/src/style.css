@@ -347,6 +347,7 @@ td:first-child{color:var(--ink);min-width:130px}
 td:first-child strong{font-weight:600}
 td small{display:block;font-size:11px;color:var(--faint);margin-top:2px}
 .user-management{margin-top:30px}
+.user-management .form-grid small{display:block;color:var(--muted);margin-top:6px;font-size:12px}
 .user-management h2{margin-bottom:18px}
 .user-management .form-grid{grid-template-columns:1fr 1fr 1fr auto;align-items:end}
 .member-list{display:flex;gap:13px;flex-wrap:wrap;margin-bottom:25px}

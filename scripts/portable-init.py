@@ -9,7 +9,7 @@ values=dict(line.split('=',1) for line in path.read_text().splitlines() if '=' i
 for key in ('AI07_DB_PASSWORD','AI07_LS_PASSWORD','AI07_LS_TOKEN'):
     values.setdefault(key,secrets.token_hex(24))
 defaults={'AI07_WEB_PORT':'3000','AI07_API_PORT':'8092','AI07_LS_PORT':'8082',
-          'AI07_BIND_ADDRESS':'127.0.0.1','AI07_GPU':'0','AI07_SECURE_COOKIE':'0'}
+          'AI07_BIND_ADDRESS':'127.0.0.1','AI07_GPU':'0','AI07_SECURE_COOKIE':'0','AI07_REQUIRE_LOGIN':'0'}
 for key,default in defaults.items():
     values[key]=os.getenv(key) or values.get(key,default)
 for key in ('AI07_WEB_PORT','AI07_API_PORT','AI07_LS_PORT'):
